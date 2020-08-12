@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "next": "9.3.5",
+    "postcss-nested": "^4.2.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "twemoji": "^13.0.1"
