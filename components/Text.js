@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 const Text = styled.h1`
     display: inline;
-    line-height:0;
-    
+        
     color:${props => props.color ? props.color : props.theme.body_600};
     
     text-decoration:${props => props.underline && "underline"};
