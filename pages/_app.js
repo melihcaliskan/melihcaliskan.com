@@ -47,7 +47,7 @@ const App = ({ Component, pageProps, router, router: { asPath } }) => {
             <GlobalStyles />
 
             <Component
-                //loading={!componentMounted}
+                loading={!componentMounted}
                 isMobile={isMobile}
                 isLight={theme === 'light'}
                 theme={theme === 'light' ? lightTheme : darkTheme}
