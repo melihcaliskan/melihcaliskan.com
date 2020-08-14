@@ -10,7 +10,7 @@ const Text = styled.h1`
 
     @media only screen and (max-width: 1280px) {
         & {
-            font-size:2.8rem;
+            font-size:2.5rem;
         }
     }
 
