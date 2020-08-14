@@ -5,11 +5,6 @@ const Container = styled.h1`
     margin:8% auto;
     line-height:80px;
 
-    @media only screen and (max-height: 770px) {
-        & {
-            margin:5vh auto;
-        }
-    }
 
     @media only screen and (max-width: 1280px) {
         & {
@@ -21,6 +16,12 @@ const Container = styled.h1`
         & {
             margin:3vh auto;
             padding:0 2em;
+        }
+    }
+
+    @media only screen and (max-height: 770px) {
+        & {
+            margin:5vh auto;
         }
     }
 
