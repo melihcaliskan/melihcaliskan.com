@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 const Container = styled.h1`
     max-width:960px;
-    margin:15vh auto;
+    margin:8% auto;
+    line-height:1.4em;
 
     @media only screen and (max-width: 960px) {        
         & {
@@ -11,8 +12,8 @@ const Container = styled.h1`
     }
 
     @media only screen and (max-width: 740px) {
-        margin:5vh auto;
-
+        line-height:0.9em;
+        
         & {
             padding:0 0.5em;
         }
