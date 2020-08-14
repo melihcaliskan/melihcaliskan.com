@@ -7,7 +7,12 @@ import Text from '../components/Text'
 import Twemoji from '../components/Twemoji';
 import { useRouter } from 'next/router'
 
-const Home = ({ theme, toggleTheme }) => {
+const Home = ({ loading, theme, toggleTheme }) => {
+
+  if (loading) {
+    return ("")
+  }
+
   return (
     <Container>
       <Fade>
@@ -19,4 +24,5 @@ const Home = ({ theme, toggleTheme }) => {
     </Container>
   );
 }
+
 export default Home
