@@ -29,7 +29,7 @@ const App = ({ Component, pageProps, router, router: { asPath } }) => {
                 <link rel="icon" href="/assets/favicon.ico" />
                 <script
                     async
-                    src="https://www.googletagmanager.com/gtag/js?id=[Tracking ID]"
+                    src="https://www.googletagmanager.com/gtag/js?id=UA-53452994-1"
                 />
 
                 <script
@@ -38,7 +38,7 @@ const App = ({ Component, pageProps, router, router: { asPath } }) => {
                             window.dataLayer = window.dataLayer || [];
                             function gtag(){dataLayer.push(arguments);}
                             gtag('js', new Date());
-                            gtag('config', '[Tracking ID]');
+                            gtag('config', 'UA-53452994-1');
                         `,
                     }}
                 />
