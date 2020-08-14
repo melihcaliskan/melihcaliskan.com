@@ -36,7 +36,7 @@ export const theme = {
     body_300: "#606060",
     body_400: "#808080",
     body_500: "#A0A0A0",
-    body_600: "#B6B6B6",
+    body_600: "#868686",
     body_700: "#C5C5C5",
     body_800: "#DDDDDD",
     body_900: "#F8F8F8",

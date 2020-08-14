@@ -39,4 +39,9 @@ export const GlobalStyles = createGlobalStyle`
     border-radius: 10px;
     background-color: ${({ theme }) => theme.scrollbar_hover};
   }
+
+  ::selection {
+    background-color: ${({ theme }) => theme.body_800};
+    color: ${({ theme }) => theme.body_200};
+  }
 `
