@@ -5,8 +5,8 @@ import { darkTheme, lightTheme } from '../assets/theme';
 
 import { GlobalStyles } from '../assets/global';
 import Head from 'next/head'
-//import Loader from '../helpers/Loader'
 import { ThemeProvider } from 'styled-components';
+import { appWithTranslation } from '../i18n'
 import { useDarkMode } from '../contexts/useDarkMode';
 import useWindowSize from '../helpers/windowSize'
 
@@ -58,4 +58,4 @@ const App = ({ Component, pageProps, router, router: { asPath } }) => {
     )
 }
 
-export default App
+export default appWithTranslation(App)
