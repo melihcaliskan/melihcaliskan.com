@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components'
 
 const Toggle = styled.button`
+    display:block;
     border:0;
     width:50px;
     height:50px;
