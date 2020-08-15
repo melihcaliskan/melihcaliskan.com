@@ -44,4 +44,8 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.body_800};
     color: ${({ theme }) => theme.body_200};
   }
+
+  *:focus {
+      outline: none;
+  }
 `
