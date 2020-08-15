@@ -12,7 +12,7 @@ import styled from 'styled-components'
 import { useRouter } from 'next/router'
 
 const LanguageToggle = styled.button`
-    cursor:pointer;
+    cursor: context-menu;
     border:0;
     margin-left:-5px;
     background:transparent;
