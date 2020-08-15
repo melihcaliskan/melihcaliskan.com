@@ -8,13 +8,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.34",
     "i18next": "^19.6.3",
     "next": "9.3.5",
     "next-i18next": "^6.0.2",
-    "postcss-custom-media": "^7.0.8",
-    "postcss-nested": "^4.2.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-portal-overlay": "^1.0.1",
     "react-reveal": "^1.2.2",
     "styled-components": "^5.1.1",
     "twemoji": "^13.0.1"

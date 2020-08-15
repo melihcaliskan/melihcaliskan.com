@@ -2,7 +2,6 @@ import { Link, i18n, withTranslation } from '../i18n'
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import Container from '../components/Container'
-import Drawer from 'react-drag-drawer'
 import Fade from 'react-reveal/Fade';
 import Head from 'next/head'
 import { Overlay } from 'react-portal-overlay';
