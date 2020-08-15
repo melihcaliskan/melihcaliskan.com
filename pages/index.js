@@ -11,23 +11,24 @@ import handleLanguage from '../helpers/handleLanguage'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
 
-const LanguageToggle = styled.button`
-    border:0;
-    margin-left:-5px;
-    background:transparent;
-    font-weight:700;
-    color:${({ theme }) => theme.body_600};
+const LanguageSelect = styled.select`
+  width:auto;
+  border:0;
+  background:transparent;
+  display:inline;
+  font-size:64px;
+  font-weight:700;
+  color:${({ theme }) => theme.body_600};
+
+  & optgroup { 
+    font-size:10px;
+  }
+
 `
 
 const Turkish = ({ t, theme }) => {
   return (
-    <Text>
-      <LanguageToggle
-        title={t('changelanguage')}
-        type='button'
-        onClick={() => handleLanguage()}>
-        {t('hello')}
-      </LanguageToggle>, {t('iam')} <Text color={theme.body_700}>{t('name')}.</Text> {t('university')} <Text color={theme.body_700}>{t('faculty')}</Text> {t('student')}.
+    <Text>, {t('iam')} <Text color={theme.body_700}>{t('name')}.</Text> {t('university')} <Text color={theme.body_700}>{t('faculty')}</Text> {t('student')}.
       {' ' + t('myown')} <Text underline color={theme.body_700}>{t('startup')}</Text> {t('workon')} <Text underline color={theme.body_700}>{t('freelance')}</Text>  {t('projects')}
     </Text>
   )
@@ -35,36 +36,41 @@ const Turkish = ({ t, theme }) => {
 
 const English = ({ t, theme }) => {
   return (
-    <Text>
-      <LanguageToggle
-        title={t('changelanguage')}
-        type='button'
-        onClick={() => handleLanguage()}>
-        {t('hello')}
-      </LanguageToggle>, {t('iam')} <Text color={theme.body_700}>{t('name')}.
+    <Text>, {t('iam')} <Text color={theme.body_700}>{t('name')}.
       <br />
-        {t('student')} </Text> {t('university')}, <Text color={theme.body_700}>{t('faculty')}</Text>.
+      {t('student')} </Text> {t('university')}, <Text color={theme.body_700}>{t('faculty')}</Text>.
       {' ' + t('myown')} <Text underline color={theme.body_700}>{t('startup')}</Text> {t('workon')} <Text underline color={theme.body_700}>{t('freelance')}</Text>  {t('projects')}
     </Text>
   )
 }
 const Deutsch = ({ t, theme }) => {
   return (
-    <Text>
-      <LanguageToggle
-        title={t('changelanguage')}
-        type='button'
-        onClick={() => handleLanguage()}>
-        {t('hello')}
-      </LanguageToggle>, {t('iam')} <Text color={theme.body_700}>{t('name')}.
+    <Text>, {t('iam')} <Text color={theme.body_700}>{t('name')}.
       <br />
-        {t('student')} </Text> {t('university')}, <Text color={theme.body_700}>{t('faculty')}</Text>.
+      {t('student')} </Text> {t('university')}, <Text color={theme.body_700}>{t('faculty')}</Text>.
       {' ' + t('myown')} <Text underline color={theme.body_700}>{t('startup')}</Text> {t('workon')} <Text underline color={theme.body_700}>{t('freelance')}</Text>  {t('projects')}
     </Text>
   )
 }
+
+const languageList = [
+  {
+    name: "Merhaba",
+    value: "tr",
+  },
+  {
+    name: "Hello",
+    value: "en",
+  },
+  {
+    name: "Hallo",
+    value: "de",
+  },
+]
+
 const Home = ({ loading, t, isLight, theme, toggleTheme }) => {
-  const language = i18n.language
+  const [language, setLanguage] = useState(i18n.language);
+
   const handleLoad = () => {
     // WIP
     const text = "loading"
@@ -79,11 +85,21 @@ const Home = ({ loading, t, isLight, theme, toggleTheme }) => {
   if (loading) {
     return ("")
   }
-  
+
   return (
-    <Container>
-      <Fade>
+    <Fade>
+      <Container>
         <ThemeToggle isLight={isLight} theme={theme} toggleTheme={toggleTheme} />
+        <LanguageSelect onChange={(e) => handleLanguage(e)} value={i18n.language}>
+          <optgroup>
+            {languageList.map(item =>
+              <option key={item.value} value={item.value}>
+                {item.name}
+              </option>
+
+            )}
+          </optgroup>
+        </LanguageSelect>
         {language == "tr" ?
           <Turkish t={t} theme={theme} />
           :
@@ -93,8 +109,8 @@ const Home = ({ loading, t, isLight, theme, toggleTheme }) => {
             language == "de" &&
             <Deutsch t={t} theme={theme} />
         }
-      </Fade>
-    </Container>
+      </Container>
+    </Fade>
   );
 }
 
