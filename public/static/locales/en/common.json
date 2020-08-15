@@ -9,5 +9,8 @@
     "startup": "startups",
     "workon": "and work on",
     "freelance": "freelance",
-    "projects": "projects."
+    "projects": "projects.",
+
+    "modalStartup": "Startups",
+    "modalProject": "Projects"
 }

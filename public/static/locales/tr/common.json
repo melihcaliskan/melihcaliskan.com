@@ -9,5 +9,8 @@
     "startup": "girişimlerimi",
     "workon": "geliştiriyor ve",
     "freelance": "freelance",
-    "projects": "projelerde çalışıyorum."
+    "projects": "projelerde çalışıyorum.",
+
+    "modalStartup": "Girişimler",
+    "modalProject": "Projeler"
 }
