@@ -12,23 +12,16 @@ const Container = styled.div`
         }
     }
 
-    @media only screen and (max-width: 960px) {        
+    @media only screen and (max-width: 960px), (max-height: 770px) {        
         & {
             margin:3vh auto;
-            padding:0 2em;
+            padding:2em;
         }
     }
-
-    @media only screen and (max-height: 770px) {
-        & {
-            margin:5vh auto;
-        }
-    }
-
+    
     @media only screen and (max-width: 740px) {        
         & {
             line-height:40px;
-            padding:0 0.5em;
         }
     }
 `
