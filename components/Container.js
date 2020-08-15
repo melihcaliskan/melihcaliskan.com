@@ -11,6 +11,10 @@ const Container = styled.div`
         height:36px;
     }
 
+    svg{
+        background:  color:${({ theme }) => theme.body_600};
+    }
+
     @media only screen and (max-width: 1280px) {
         .svg-inline--fa{
             width:28px;
