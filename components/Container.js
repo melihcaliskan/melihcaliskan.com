@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const Container = styled.div`
     max-width:960px;
     margin:8vh auto;
-    line-height:65px;
+    line-height:60px;
 
 
     .svg-inline--fa{
