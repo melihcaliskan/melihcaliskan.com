@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
-const Text = styled.span`
+const Text = styled.a`
     display: inline;
     font-size:64px;
     font-weight:700;    
     color:${props => props.color ? props.color : props.theme.body_600};
-    
-    text-decoration:${props => props.underline && "underline"};
+    cursor:${props => props.pointer ? "pointer" : "initial"};
+
+    text-decoration:${props => props.underline ? "underline" : "none"};
     text-decoration-style: ${props => props.underline && "dotted"};
     @media only screen and (max-width: 1280px) {
         & {
