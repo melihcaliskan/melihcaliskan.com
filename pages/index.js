@@ -7,6 +7,7 @@ import Head from 'next/head'
 import Text from '../components/Text'
 import ThemeToggle from '../components/ThemeToggle';
 import Twemoji from '../components/Twemoji';
+import handleLanguage from '../helpers/handleLanguage'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
 
@@ -18,13 +19,52 @@ const LanguageToggle = styled.button`
     color:${({ theme }) => theme.body_600};
 `
 
+const Turkish = ({ t, theme }) => {
+  return (
+    <Text>
+      <LanguageToggle
+        title={t('changelanguage')}
+        type='button'
+        onClick={() => handleLanguage()}>
+        {t('hello')}
+      </LanguageToggle>, {t('iam')} <Text color={theme.body_700}>{t('name')}.</Text> {t('university')} <Text color={theme.body_700}>{t('faculty')}</Text> {t('student')}.
+      {' ' + t('myown')} <Text underline color={theme.body_700}>{t('startup')}</Text> {t('workon')} <Text underline color={theme.body_700}>{t('freelance')}</Text>  {t('projects')}
+    </Text>
+  )
+}
+
+const English = ({ t, theme }) => {
+  return (
+    <Text>
+      <LanguageToggle
+        title={t('changelanguage')}
+        type='button'
+        onClick={() => handleLanguage()}>
+        {t('hello')}
+      </LanguageToggle>, {t('iam')} <Text color={theme.body_700}>{t('name')}.
+      <br />
+        {t('student')} </Text> {t('university')}, <Text color={theme.body_700}>{t('faculty')}</Text>.
+      {' ' + t('myown')} <Text underline color={theme.body_700}>{t('startup')}</Text> {t('workon')} <Text underline color={theme.body_700}>{t('freelance')}</Text>  {t('projects')}
+    </Text>
+  )
+}
+const Deutsch = ({ t, theme }) => {
+  return (
+    <Text>
+      <LanguageToggle
+        title={t('changelanguage')}
+        type='button'
+        onClick={() => handleLanguage()}>
+        {t('hello')}
+      </LanguageToggle>, {t('iam')} <Text color={theme.body_700}>{t('name')}.
+      <br />
+        {t('student')} </Text> {t('university')}, <Text color={theme.body_700}>{t('faculty')}</Text>.
+      {' ' + t('myown')} <Text underline color={theme.body_700}>{t('startup')}</Text> {t('workon')} <Text underline color={theme.body_700}>{t('freelance')}</Text>  {t('projects')}
+    </Text>
+  )
+}
 const Home = ({ loading, t, isLight, theme, toggleTheme }) => {
-
-  const handleLanguage = () => {
-    const language = i18n.language === 'en' ? 'de' : i18n.language === 'de' ? 'tr' : 'en'
-    i18n.changeLanguage(language)
-  }
-
+  const language = i18n.language
   const handleLoad = () => {
     // WIP
     const text = "loading"
@@ -39,20 +79,20 @@ const Home = ({ loading, t, isLight, theme, toggleTheme }) => {
   if (loading) {
     return ("")
   }
-
+  
   return (
     <Container>
       <Fade>
         <ThemeToggle isLight={isLight} theme={theme} toggleTheme={toggleTheme} />
-        <Text>
-          <LanguageToggle
-            title={t('changelanguage')}
-            type='button'
-            onClick={() => handleLanguage()}>
-            {t('hello')}
-          </LanguageToggle>, ben <Text color={theme.body_700}>Melih Çalışkan.</Text> Dumlupınar Üniversitesi <Text color={theme.body_700}>Bilgisayar Mühendisliği</Text>  öğrencisiyim.
-        Kendi <Text underline color={theme.body_700}>girişimlerimi</Text> geliştiriyor ve <Text underline color={theme.body_700}>freelance</Text>  projelerde çalışıyorum.
-      </Text>
+        {language == "tr" ?
+          <Turkish t={t} theme={theme} />
+          :
+          language == "en" ?
+            <English t={t} theme={theme} />
+            :
+            language == "de" &&
+            <Deutsch t={t} theme={theme} />
+        }
       </Fade>
     </Container>
   );
