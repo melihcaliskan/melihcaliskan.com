@@ -6,13 +6,24 @@ const Container = styled.div`
     line-height:65px;
 
 
+    .svg-inline--fa{
+        width:30px;
+        height:30px;
+    }
+
     @media only screen and (max-width: 1280px) {
         & {
             line-height:60px;
         }
     }
 
-    @media only screen and (max-width: 960px), (max-height: 770px) {        
+    @media only screen and (max-width: 960px), (max-height: 770px) {   
+        .svg-inline--fa{
+            width:20px;
+            height:20px;
+            margin-right:-0.3em;
+        }
+
         & {
             margin:3vh auto;
             padding:2em;
