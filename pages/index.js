@@ -64,7 +64,7 @@ const CloseModal = styled.div`
 
 const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
   return (
-    <Text>{t('iam')} <Text target="_blank" href="/MelihCaliskan_Ozgecmis.pdf" color={theme.body_700}>{t('name')}.</Text> {t('university')} <Text color={theme.body_700}>{t('faculty')}</Text> {t('student')}.
+    <Text>{t('iam')} <Text pointer target="_blank" href="/MelihCaliskan_Ozgecmis.pdf" color={theme.body_700}>{t('name')}.</Text> {t('university')} <Text color={theme.body_700}>{t('faculty')}</Text> {t('student')}.
       {' ' + t('myown')} <Text onClick={() => setOpenStartups(true)} pointer underline color={theme.body_700}>{t('startup')}</Text> {t('workon')} <Text onClick={() => setOpenProjects(true)} pointer underline color={theme.body_700}>{t('freelance')}</Text>  {t('projects')}
     </Text>
   )
@@ -72,7 +72,7 @@ const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
 
 const English = ({ t, theme, setOpenProjects }) => {
   return (
-    <Text>{t('iam')} <Text target="_blank" href="MelihCaliskan_Resume.pdf" color={theme.body_700}>{t('name')}.
+    <Text>{t('iam')} <Text pointer target="_blank" href="MelihCaliskan_Resume.pdf" color={theme.body_700}>{t('name')}.
       <br />
       {t('student')} </Text> {t('university')}, <Text color={theme.body_700}>{t('faculty')}</Text>.
       {' ' + t('myown')} <Text onClick={() => setOpenStartups(true)} pointer underline color={theme.body_700}>{t('startup')}</Text> {t('workon')} <Text onClick={() => setOpenProjects(true)} pointer underline color={theme.body_700}>{t('freelance')}</Text>  {t('projects')}
@@ -81,7 +81,7 @@ const English = ({ t, theme, setOpenProjects }) => {
 }
 const Deutsch = ({ t, theme, setOpenProjects }) => {
   return (
-    <Text>{t('iam')} <Text target="_blank" href="MelihCaliskan_Resume.pdf" color={theme.body_700}>{t('name')}.
+    <Text>{t('iam')} <Text pointer target="_blank" href="MelihCaliskan_Resume.pdf" color={theme.body_700}>{t('name')}.
       <br />
       {t('student')} </Text> {t('university')}, <Text color={theme.body_700}>{t('faculty')}</Text>.
       {' ' + t('myown')} <Text onClick={() => setOpenStartups(true)} pointer underline color={theme.body_700}>{t('startup')}</Text> {t('workon')} <Text onClick={() => setOpenProjects(true)} pointer underline color={theme.body_700}>{t('freelance')}</Text>  {t('projects')}
