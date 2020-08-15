@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-const Container = styled.h1`
+const Container = styled.div`
     max-width:960px;
-    margin:8% auto;
-    line-height:80px;
+    margin:5vh auto;
+    line-height:65px;
 
 
     @media only screen and (max-width: 1280px) {
