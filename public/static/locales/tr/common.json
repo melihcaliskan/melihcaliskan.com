@@ -1,3 +1,13 @@
 {
-    "hello": "Merhaba"
+    "hello": "Merhaba",
+    "iam": "ben",
+    "name": "Melih Çalışkan",
+    "student": "öğrencisiyim",
+    "university": "Dumlupınar Üniversitesi",
+    "faculty": "Bilgisayar Mühendisliği",
+    "myown": "Kendi",
+    "startup": "girişimlerimi",
+    "workon": "geliştiriyor ve",
+    "freelance": "freelance",
+    "projects": "projelerde çalışıyorum."
 }
