@@ -15,7 +15,6 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-portal-overlay": "^1.0.1",
-    "react-reveal": "^1.2.2",
     "styled-components": "^5.1.1",
     "twemoji": "^13.0.1"
   },
