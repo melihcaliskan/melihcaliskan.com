@@ -31,6 +31,7 @@ const Text = styled.a`
     transition: opacity 0.3s;
 
     img {
+      width:280px;
       border-radius:10px;
       box-shadow: 0px 6px 9px -2px rgba(0,0,0,0.75);
     }
@@ -38,7 +39,7 @@ const Text = styled.a`
 
   @media only screen and (max-width: 1280px) {
       .dpu-card img{
-        width:200px;
+        width:240px;
       }
       
       & {
@@ -48,7 +49,7 @@ const Text = styled.a`
 
   @media only screen and (max-width: 740px) {
       .dpu-card img{
-        width:140px;
+        width:200px;
       }
 
       & {
