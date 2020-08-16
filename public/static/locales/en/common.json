@@ -12,5 +12,7 @@
     "projects": "projects.",
 
     "modalStartup": "Startups",
-    "modalProject": "Projects"
+    "modalProject": "Projects",
+
+    "backToHome": "Back to home"
 }
