@@ -17,7 +17,7 @@ const Text = styled.a`
 
     @media only screen and (max-width: 740px) {
         & {
-            font-size:1.7rem;
+            font-size:2rem;
         }
     }
 `
