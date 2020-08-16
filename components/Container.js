@@ -4,7 +4,7 @@ const Container = styled.div`
     max-width:960px;
     margin:8vh auto;
     line-height:60px;
-
+    
     animation: fadeIn ease .7s;
     -webkit-animation: fadeIn ease .7s;
     -moz-animation: fadeIn ease .7s;
@@ -15,7 +15,7 @@ const Container = styled.div`
     }
 
     svg{
-        background:  color:${({ theme }) => theme.body_600};
+        color:${({ theme }) => theme.body_600};
     }
 
     @media only screen and (max-width: 1280px) {

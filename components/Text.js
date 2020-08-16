@@ -9,6 +9,9 @@ const Text = styled.a`
 
     text-decoration:${props => props.underline ? "underline" : "none"};
     text-decoration-style: ${props => props.underline && "dotted"};
+
+    transition: all 0.3s;
+
     @media only screen and (max-width: 1280px) {
         & {
             font-size:2.5rem;
