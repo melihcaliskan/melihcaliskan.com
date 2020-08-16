@@ -91,7 +91,6 @@ const Deutsch = ({ t, theme, setOpenProjects }) => {
 
 const Modal = (props) => {
   const { t, theme, open, setOpen, title, children } = props
-  console.log(props)
   return (
     <Overlay
       css={css`background: ${theme.body}; padding: 3rem; width: 100%;`}
@@ -145,7 +144,7 @@ const Home = (props) => {
     for (let i = 0; text.length >= i; i++) {
       setTimeout(() => {
         window.history.replaceState(null, null, `/${text.substr(i)}`);
-        console.log(text.substr(i))
+        //console.log(text.substr(i))
       }, 300)
     }
   }
@@ -163,7 +162,7 @@ const Home = (props) => {
 
         <Text>
           <LanguageToggle
-            title={t('changelanguage')}
+            title={"Change language"}
             type='button'
             onClick={() => handleLanguage()}>
             {t('hello')}

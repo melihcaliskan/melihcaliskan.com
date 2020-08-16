@@ -20,11 +20,11 @@ const App = ({ Component, pageProps, router, router: { asPath } }) => {
             <Head>
                 <title>Melih Çalışkan</title>
                 <meta charSet="utf-8" />
-                <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
-
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 <meta property="og:title" content="melihcaliskan.com" />
                 <meta property="og:url" content="https://melihcaliskan.com" />
                 <meta property="description" content="Personal website of Melih Çalışkan" />
+                <meta name="Description" content="Personal website of Melih Çalışkan" />
                 <meta property="og:description" content="Personal website of Melih Çalışkan" />
                 <link rel="icon" href="/assets/favicon.ico" />
                 <script
