@@ -63,12 +63,32 @@ const CloseModal = styled.div`
 `
 
 const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
+
+  const handleAudio = (play) => {
+    let audio = document.getElementById("dpu-sound")
+    console.log(audio)
+    if (play) {
+      audio.play()
+    } else {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+  }
+
   return (
     <Text>{t('iam')}
       <Text pointer target="_blank" href="/MelihCaliskan_Ozgecmis.pdf" color={theme.body_700}>{' ' + t('name')}.</Text>
-      <Text pointer className="dpu">
+      <Text
+        onMouseOver={() => handleAudio(true)}
+        onMouseLeave={() => handleAudio(false)}
+        pointer
+        className="dpu"
+      >
         {' ' + t('university')}
         <div className="dpu-card">
+          <audio id="dpu-sound" autoplay controls>
+            <source src="/dpu.mp3" type="audio/mpeg" />
+          </audio>
           <img width="260" src="/dpu.jpg" />
         </div>
       </Text>
@@ -79,7 +99,7 @@ const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
       <Text>{' ' + t('workon') + ' '}</Text>
       <Text href="#" onClick={() => setOpenProjects(true)} pointer underline color={theme.body_700}>{t('freelance')}</Text>
       <Text>{' ' + t('projects')}</Text>
-    </Text>
+    </Text >
   )
 }
 
