@@ -16,6 +16,10 @@ const Toggle = styled.button`
     svg > path {
         fill:${({ theme }) => theme.body_800};
     }
+    
+    &:focus {
+        border-radius: 50%;
+    }
 `
 
 const ThemeToggle = ({ isLight, theme, toggleTheme }) => {
