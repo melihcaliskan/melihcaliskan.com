@@ -25,9 +25,9 @@ const LanguageToggle = styled.button`
 `
 
 const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
+  
   const handleAudio = (play) => {
-    let audio = document.getElementById("dpu-sound")
-    console.log(audio)
+    const audio = document.getElementById("dpu-sound")
     if (play) {
       audio.play()
     } else {
@@ -40,14 +40,15 @@ const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
     <Text>{t('iam')}
       <Text pointer target="_blank" href="/MelihCaliskan_Ozgecmis.pdf" color={theme.body_700}>{' ' + t('name')}.</Text>
       <Text
-        onMouseOver={() => handleAudio(true)}
+        // Used onClick because of Apple restrictions
+        onClick={() => handleAudio(true)}
         onMouseLeave={() => handleAudio(false)}
         pointer
         className="dpu"
       >
         {' ' + t('university')}
         <div className="dpu-card">
-          <audio id="dpu-sound" autoplay>
+          <audio id="dpu-sound">
             <source src="/dpu.mp3" type="audio/mpeg" />
           </audio>
           <img width="280" src="/dpu.jpg" />
