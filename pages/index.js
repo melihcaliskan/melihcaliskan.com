@@ -175,7 +175,6 @@ const Home = (props) => {
         <Startups title={t('modalStartup')} open={openStartups} setOpen={setOpenStartups} {...props} />
         <Projects title={t('modalProject')} open={openProjects} setOpen={setOpenProjects} {...props} />
 
-        <button onClick={() => test()}>awdefgh</button>
         <Text>
           <LanguageToggle
             title={"Change language"}
