@@ -11,17 +11,6 @@ import handleLanguage from '../helpers/handleLanguage'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
 
-const Loader = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  animation: fadeIn ease .2s;
-  -webkit-animation: fadeIn ease .2s;
-  -moz-animation: fadeIn ease .2s;
-`
-
 const LanguageToggle = styled.button`
   cursor: pointer;
   border:0;
@@ -165,43 +154,43 @@ const Home = (props) => {
 
   if (loading) {
     return (
-      <Loader><h1>Loading...</h1></Loader>
+      <div style={{ "position": "absolute", "top": "50%", "left": "50%", "marginRight": "-50%", "transform": "translate(-50%, -50%)", "animation": "fadeIn ease .2s", "WebkitAnimation": "fadeIn ease .2s", "MozAnimation": "fadeIn ease .2s" }}><h1>Loading...</h1></div>
     )
   }
 
   return (
     <Container>
-        <ThemeToggle isLight={isLight} theme={theme} toggleTheme={toggleTheme} />
-        <Startups title={t('modalStartup')} open={openStartups} setOpen={setOpenStartups} {...props} />
-        <Projects title={t('modalProject')} open={openProjects} setOpen={setOpenProjects} {...props} />
+      <ThemeToggle isLight={isLight} theme={theme} toggleTheme={toggleTheme} />
+      <Startups title={t('modalStartup')} open={openStartups} setOpen={setOpenStartups} {...props} />
+      <Projects title={t('modalProject')} open={openProjects} setOpen={setOpenProjects} {...props} />
 
-        <Text>
-          <LanguageToggle
-            title={"Change language"}
-            type='button'
-            onClick={() => handleLanguage()}>
-            {t('hello')}
-          </LanguageToggle>
-          {", "}
-          {language == "tr" ?
-            <Turkish
+      <Text>
+        <LanguageToggle
+          title={"Change language"}
+          type='button'
+          onClick={() => handleLanguage()}>
+          {t('hello')}
+        </LanguageToggle>
+        {", "}
+        {language == "tr" ?
+          <Turkish
+            setOpenStartups={setOpenStartups}
+            setOpenProjects={setOpenProjects}
+            {...props} />
+          :
+          language == "en" ?
+            <English
               setOpenStartups={setOpenStartups}
               setOpenProjects={setOpenProjects}
               {...props} />
             :
-            language == "en" ?
-              <English
-                setOpenStartups={setOpenStartups}
-                setOpenProjects={setOpenProjects}
-                {...props} />
-              :
-              language == "de" &&
-              <Deutsch
-                setOpenStartups={setOpenStartups}
-                setOpenProjects={setOpenProjects}
-                {...props} />
-          }
-        </Text>
+            language == "de" &&
+            <Deutsch
+              setOpenStartups={setOpenStartups}
+              setOpenProjects={setOpenProjects}
+              {...props} />
+        }
+      </Text>
     </Container>
   );
 }
