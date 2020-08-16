@@ -15,6 +15,7 @@ const LanguageToggle = styled.button`
   cursor: pointer;
   border:0;
   margin-left:-5px;
+  margin-right:-5px;
   background:transparent;
   font-weight:700;
   transition: color .3s;
