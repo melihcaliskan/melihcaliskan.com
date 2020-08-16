@@ -86,7 +86,7 @@ const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
       >
         {' ' + t('university')}
         <div className="dpu-card">
-          <audio id="dpu-sound" autoplay controls>
+          <audio id="dpu-sound" autoplay>
             <source src="/dpu.mp3" type="audio/mpeg" />
           </audio>
           <img width="260" src="/dpu.jpg" />
