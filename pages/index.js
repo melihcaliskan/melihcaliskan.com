@@ -150,7 +150,7 @@ const Home = (props) => {
 
   if (loading) {
     return (
-      <div style={{ "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif", fontWeight: 700, "position": "absolute", "top": "50%", "left": "50%", "marginRight": "-50%", "transform": "translate(-50%, -50%)", "animation": "fadeIn ease .2s", "WebkitAnimation": "fadeIn ease .2s", "MozAnimation": "fadeIn ease .2s" }}><h1>Loading...</h1></div>
+      <div style={{ color: '#464646', fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif", fontWeight: 700, position: "absolute", top: "50%", left: "50%", marginRight: "-50%", transform: "translate(-50%, -50%)", animation: "fadeIn ease .2s", WebkitAnimation: "fadeIn ease .2s", MozAnimation: "fadeIn ease .2s" }}><h1>Loading...</h1></div>
     )
   }
 
