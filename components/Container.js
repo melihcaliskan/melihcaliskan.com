@@ -5,6 +5,9 @@ const Container = styled.div`
     margin:8vh auto;
     line-height:60px;
 
+    animation: fadeIn ease .7s;
+    -webkit-animation: fadeIn ease .7s;
+    -moz-animation: fadeIn ease .7s;
 
     .svg-inline--fa{
         width:36px;

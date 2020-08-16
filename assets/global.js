@@ -52,4 +52,18 @@ export const GlobalStyles = createGlobalStyle`
                 0px 0px 2px ${({ theme }) => theme.body_600},
                 0px 0px 3px ${({ theme }) => theme.body_700};
   }
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+  @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
 `

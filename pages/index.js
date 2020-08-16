@@ -2,7 +2,6 @@ import { Link, i18n, withTranslation } from '../i18n'
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import Container from '../components/Container'
-import Fade from 'react-reveal/Fade';
 import Head from 'next/head'
 import { Overlay } from 'react-portal-overlay';
 import Text from '../components/Text'
@@ -11,6 +10,17 @@ import Twemoji from '../components/Twemoji';
 import handleLanguage from '../helpers/handleLanguage'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
+
+const Loader = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  animation: fadeIn ease .2s;
+  -webkit-animation: fadeIn ease .2s;
+  -moz-animation: fadeIn ease .2s;
+`
 
 const LanguageToggle = styled.button`
   cursor: pointer;
@@ -149,17 +159,23 @@ const Home = (props) => {
     }
   }
 
+  const test = () => {
+
+  }
+
   if (loading) {
-    return ("")
+    return (
+      <Loader><h1>Loading...</h1></Loader>
+    )
   }
 
   return (
     <Container>
-      <Fade>
         <ThemeToggle isLight={isLight} theme={theme} toggleTheme={toggleTheme} />
         <Startups title={t('modalStartup')} open={openStartups} setOpen={setOpenStartups} {...props} />
         <Projects title={t('modalProject')} open={openProjects} setOpen={setOpenProjects} {...props} />
 
+        <button onClick={() => test()}>awdefgh</button>
         <Text>
           <LanguageToggle
             title={"Change language"}
@@ -187,7 +203,6 @@ const Home = (props) => {
                 {...props} />
           }
         </Text>
-      </Fade>
     </Container>
   );
 }
