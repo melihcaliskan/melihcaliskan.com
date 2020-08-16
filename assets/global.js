@@ -46,6 +46,10 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   *:focus {
-      outline: none;
+    outline: none; 
+    border-radius: 6px;
+    box-shadow: 0px 0px 1px ${({ theme }) => theme.body_500},
+                0px 0px 2px ${({ theme }) => theme.body_600},
+                0px 0px 3px ${({ theme }) => theme.body_700};
   }
 `
