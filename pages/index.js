@@ -63,8 +63,21 @@ const CloseModal = styled.div`
 
 const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
   return (
-    <Text>{t('iam')} <Text pointer target="_blank" href="/MelihCaliskan_Ozgecmis.pdf" color={theme.body_700}>{t('name')}.</Text> {t('university')} <Text color={theme.body_700}>{t('faculty')}</Text> {t('student')}.
-      {' ' + t('myown')} <Text href="#" onClick={() => setOpenStartups(true)} pointer underline color={theme.body_700}>{t('startup')}</Text> {t('workon')} <Text href="#" onClick={() => setOpenProjects(true)} pointer underline color={theme.body_700}>{t('freelance')}</Text>  {t('projects')}
+    <Text>{t('iam')}
+      <Text pointer target="_blank" href="/MelihCaliskan_Ozgecmis.pdf" color={theme.body_700}>{' ' + t('name')}.</Text>
+      <Text pointer className="dpu">
+        {' ' + t('university')}
+        <div className="dpu-card">
+          <img width="260" src="/dpu.jpg" />
+        </div>
+      </Text>
+      <Text color={theme.body_700}>{' ' + t('faculty')}</Text>
+      <Text>{' ' + t('student')}.</Text>
+      <Text>{' ' + t('myown') + ' '}</Text>
+      <Text href="#" onClick={() => setOpenStartups(true)} pointer underline color={theme.body_700}>{t('startup')}</Text>
+      <Text>{' ' + t('workon') + ' '}</Text>
+      <Text href="#" onClick={() => setOpenProjects(true)} pointer underline color={theme.body_700}>{t('freelance')}</Text>
+      <Text>{' ' + t('projects')}</Text>
     </Text>
   )
 }
