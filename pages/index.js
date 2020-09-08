@@ -29,8 +29,10 @@ const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
   const handleAudio = (play) => {
     const audio = document.getElementById("dpu-sound")
     if (play) {
+      document.title = "Teşekkürler Kalt ❤️"
       audio.play()
     } else {
+      document.title = "Melih Çalışkan"
       audio.pause();
       audio.currentTime = 0;
     }
@@ -112,7 +114,7 @@ const Home = (props) => {
   if (loading) {
     return (
       <div style={{ position: "absolute", top: "50%", left: "50%", marginRight: "-50%", transform: "translate(-50%, -50%)", animation: "fadeIn ease .2s", WebkitAnimation: "fadeIn ease .2s", MozAnimation: "fadeIn ease .2s" }}>
-        <h1 style={{ fontSize: '36px', color: '#464646', fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif", fontWeight: 700 }}>Loading...</h1>
+        <h1 style={{ fontSize: '36px', color: '#464646', fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif", fontWeight: 700 }}>{t('loading')}</h1>
       </div>
     )
   }
