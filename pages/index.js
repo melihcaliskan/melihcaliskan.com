@@ -3,9 +3,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 import Container from '../components/Container'
 import Head from 'next/head'
+import Header from "../components/Header"
 import Modal from '../components/Modal'
 import Text from '../components/Text'
-import ThemeToggle from '../components/ThemeToggle';
 import Twemoji from '../components/Twemoji';
 import handleLanguage from '../helpers/handleLanguage'
 import styled from 'styled-components'
@@ -25,7 +25,7 @@ const LanguageToggle = styled.button`
 `
 
 const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
-  
+
   const handleAudio = (play) => {
     const audio = document.getElementById("dpu-sound")
     if (play) {
@@ -121,7 +121,7 @@ const Home = (props) => {
 
   return (
     <Container>
-      <ThemeToggle isLight={isLight} theme={theme} toggleTheme={toggleTheme} />
+      <Header {...props} />
       <Startups title={t('modalStartup')} open={openStartups} setOpen={setOpenStartups} {...props} />
       <Projects title={t('modalProject')} open={openProjects} setOpen={setOpenProjects} {...props} />
 

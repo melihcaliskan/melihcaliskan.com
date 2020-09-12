@@ -66,4 +66,79 @@ export const GlobalStyles = createGlobalStyle`
     0% {opacity:0;}
     100% {opacity:1;}
   }
+
+  /* MENU */
+
+  .menu{
+    position:relative;
+  }
+
+  .menu input {
+    display: none;
+  }
+
+  .menu label {
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+
+  .menu label svg{
+    position:absolute;
+    top:-15px;
+    left:-15px;
+    width:72px;
+    height:72px;
+  }
+
+  .menu path {
+    fill: none;
+    stroke: black;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    --length: 24;
+    --offset: -38;
+    stroke-dasharray: var(--length) var(--total-length);
+    stroke-dashoffset: var(--offset);
+    transition: all .8s cubic-bezier(.645, .045, .355, 1);
+  }
+
+  .cross input:checked+svg .line--1,
+  .cross input:checked+svg .line--3 {
+    --length: 22.627416998;
+  }
+
+  .cross input:checked+svg .line--2 {
+    --length: 0;
+  }
+
+  .back input:checked+svg .line--1,
+  .back input:checked+svg .line--3 {
+    --length: 8.602325267;
+  }
+
+  .menu .line--1,
+  .menu .line--3 {
+    --total-length: 111.22813415527344;
+    --offset: -50.22813415527344;
+  }
+
+  .menu .line--2 {
+    --total-length: 99;
+  }
+
+  .menu input:checked+svg path {
+    transform: translateX(30px);
+  }
+
+  .menu input:checked+svg .line--1,
+  .menu input:checked+svg .line--3 {
+    --offset: -16.9705627485;
+  }
+
+  .menu input:checked+svg .line--2 {
+    --offset: -20;
+  }
 `
