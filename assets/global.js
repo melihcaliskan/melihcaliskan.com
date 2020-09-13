@@ -102,7 +102,7 @@ export const GlobalStyles = createGlobalStyle`
     --offset: -38;
     stroke-dasharray: var(--length) var(--total-length);
     stroke-dashoffset: var(--offset);
-    transition: all .8s cubic-bezier(.645, .045, .355, 1);
+    transition: all .4s cubic-bezier(.645, .045, .355, 1);
   }
 
   .cross input:checked+svg .line--1,
