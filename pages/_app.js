@@ -1,6 +1,5 @@
 import '../assets/normalize.css'
 
-import React, { useEffect, useState } from 'react'
 import { darkTheme, lightTheme } from '../assets/theme';
 
 import { GlobalStyles } from '../assets/global';
@@ -26,7 +25,7 @@ const App = ({ Component, pageProps, router, router: { asPath } }) => {
                 <meta property="description" content="Personal website of Melih Çalışkan" />
                 <meta name="Description" content="Personal website of Melih Çalışkan" />
                 <meta property="og:description" content="Personal website of Melih Çalışkan" />
-                <link rel="icon" href="/assets/favicon.ico" />
+                <link rel="icon" href="/favicon.ico" />
                 <script
                     async
                     src="https://www.googletagmanager.com/gtag/js?id=UA-53452994-1"
