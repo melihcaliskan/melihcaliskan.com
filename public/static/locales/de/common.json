@@ -15,5 +15,8 @@
     "modalStartup": "Startups",
     "modalProject": "Projekten",
 
-    "backToHome": "Zurück nach Hause"
+    "backToHome": "Zurück nach Hause",
+
+    "resume":"Lebenslauf",
+    "contact":"Kontakt"
 }

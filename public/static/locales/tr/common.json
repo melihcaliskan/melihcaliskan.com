@@ -15,5 +15,8 @@
     "modalStartup": "Girişimler",
     "modalProject": "Projeler",
 
-    "backToHome": "Anasayfaya dön"
+    "backToHome": "Anasayfaya dön",
+
+    "resume":"Özgeçmiş",
+    "contact":"İletişim"
 }
