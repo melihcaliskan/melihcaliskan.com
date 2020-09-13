@@ -5,11 +5,10 @@ import styled from 'styled-components'
 const Header = styled.header`
   display:flex;
   justify-content:space-between;
-  align-items:center;
+  align-items:flex-start;
 `
 
 const CustomHeader = (props) => {
-    console.log(props)
     return (
         <Header>
             <ThemeToggle {...props} />
