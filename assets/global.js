@@ -94,7 +94,7 @@ export const GlobalStyles = createGlobalStyle`
 
   .menu path {
     fill: none;
-    stroke: black;
+    stroke: ${({ theme }) => theme.body_900};
     stroke-width: 3;
     stroke-linecap: round;
     stroke-linejoin: round;
