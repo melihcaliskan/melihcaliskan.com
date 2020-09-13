@@ -13,9 +13,7 @@ const CustomHeader = (props) => {
     return (
         <Header>
             <ThemeToggle {...props} />
-            {/*}
-            <MenuToggle {...props} />
-            {*/}
+            <MenuToggle {...props}/>
         </Header>
     );
 }
