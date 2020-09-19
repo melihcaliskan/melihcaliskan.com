@@ -7,16 +7,21 @@ import styled from 'styled-components'
 import useSWR from 'swr'
 
 const TabContainer = styled.div`
+  scroll-snap-type: x mandatory;
   display:flex;
-  width:100%;
+  position:relative;
+  overflow:auto;
+  margin-bottom:2em;
 `
+const TitleContainer = styled.div`
+  margin-right:1em;
+  cursor:pointer;
+  scroll-snap-align: start;
+`
+
 const TabTitle = styled.h2`
   font-size:28px;
-  cursor:pointer;
-
-  margin-bottom:2em;
-  margin-right:1em;
-
+  white-space: nowrap;
   transition: color .4s;
   color:${props => props.active ? props.theme.body_900 : props.theme.body_600};
 `
@@ -55,12 +60,14 @@ export const Projects = (props) => {
     <Modal {...props}>
       <TabContainer>
         {["React", "React Native", "Hackerrank", "Github"].map((item, index) =>
-          <TabTitle
-            key={index}
-            active={tabIndex === index}
-            onClick={() => setTabIndex(index)}>
-            {item}
-          </TabTitle>
+          <TitleContainer>
+            <TabTitle
+              key={index}
+              active={tabIndex === index}
+              onClick={() => setTabIndex(index)}>
+              {item}
+            </TabTitle>
+          </TitleContainer>
         )}
       </TabContainer>
 

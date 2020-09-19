@@ -19,27 +19,6 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
   }
 
-  ::-webkit-scrollbar {
-    border-radius: 10px;
-    background-color: ${({ theme }) => theme.scrollbar_light};
-    height:15px;
-  }
-
-  ::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background-color: ${({ theme }) => theme.scrollbar_light};
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: ${({ theme }) => theme.scrollbar_dark};
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    border-radius: 10px;
-    background-color: ${({ theme }) => theme.scrollbar_hover};
-  }
-
   ::selection {
     background-color: ${({ theme }) => theme.body_800};
     color: ${({ theme }) => theme.body_200};
