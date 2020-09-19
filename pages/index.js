@@ -1,14 +1,15 @@
 import { i18n, withTranslation } from '../i18n'
-import { useCallback, useEffect, useRef, useState } from 'react';
 
 import Container from '../components/Container'
 import Head from 'next/head'
-import Header from "../components/Header"
+import Header from '../components/Header'
 import Modal from '../components/Modal'
+import Projects from '../components/Projects'
 import Text from '../components/Text'
 import Twemoji from '../components/Twemoji';
 import handleLanguage from '../helpers/handleLanguage'
 import styled from 'styled-components'
+import { useState } from 'react';
 
 const LanguageToggle = styled.button`
   cursor: pointer;
@@ -46,8 +47,7 @@ const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
         onClick={() => handleAudio(true)}
         onMouseLeave={() => handleAudio(false)}
         pointer
-        className="dpu"
-      >
+        className="dpu">
         {' ' + t('university')}
         <div className="dpu-card">
           <audio id="dpu-sound">
@@ -61,8 +61,8 @@ const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
       <Text>{' ' + t('myown') + ' '}</Text>
       <Text href="#" onClick={() => setOpenStartups(true)} pointer underline color={theme.body_700}>{t('startup')}</Text>
       <Text>{' ' + t('workon') + ' '}</Text>
-      <Text href="#" onClick={() => setOpenProjects(true)} pointer underline color={theme.body_700}>{t('freelance')}</Text>
-      <Text>{' ' + t('projects')}</Text>
+      <Text href="#" onClick={() => setOpenProjects(true)} pointer underline color={theme.body_700}>{t('freelance') + ' ' + t('projects')}</Text>
+      <Text>{' ' + t('working')}</Text>
     </Text >
   )
 }
@@ -72,7 +72,7 @@ const English = ({ t, theme, setOpenStartups, setOpenProjects }) => {
     <Text>{t('iam')} <Text pointer target="_blank" href="MelihCaliskan_Resume.pdf" color={theme.body_700}>{t('name')}.
       <br />
       {t('student')} </Text> {t('university')}, <Text color={theme.body_700}>{t('faculty')}</Text>.
-      {' ' + t('myown')} <Text href="#" onClick={() => setOpenStartups(true)} pointer underline color={theme.body_700}>{t('startup')}</Text> {t('workon')} <Text href="#" onClick={() => setOpenProjects(true)} pointer underline color={theme.body_700}>{t('freelance')}</Text>  {t('projects')}
+      {' ' + t('myown')} <Text href="#" onClick={() => setOpenStartups(true)} pointer underline color={theme.body_700}>{t('startup')}</Text> {t('workon')} <Text href="#" onClick={() => setOpenProjects(true)} pointer underline color={theme.body_700}>{t('freelance') + ' ' + t('projects')}</Text>
     </Text>
   )
 }
@@ -86,17 +86,7 @@ const Deutsch = ({ t, theme, setOpenStartups, setOpenProjects }) => {
   )
 }
 
-
-
 const Startups = (props) => {
-  const { t, theme, open, setOpen, title, children } = props
-  return (
-    <Modal {...props}>
-      Coming soon...
-    </Modal>
-  )
-}
-const Projects = (props) => {
   const { t, theme, open, setOpen, title, children } = props
   return (
     <Modal {...props}>
