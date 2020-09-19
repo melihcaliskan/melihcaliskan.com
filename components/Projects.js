@@ -1,0 +1,109 @@
+import React, { useState } from 'react';
+
+import Modal from './Modal'
+import SwipeableViews from 'react-swipeable-views';
+import fetcher from '../helpers/fetcher'
+import styled from 'styled-components'
+import useSWR from 'swr'
+
+const TabContainer = styled.div`
+  display:flex;
+  width:100%;
+`
+const TabTitle = styled.h2`
+  font-size:28px;
+  cursor:pointer;
+
+  margin-bottom:2em;
+  margin-right:1em;
+
+  transition: color .4s;
+  color:${props => props.active ? props.theme.body_900 : props.theme.body_600};
+`
+
+
+const Title = styled.h3`
+`
+
+const HackerrankContainer = styled.div`
+  display:flex;
+  align-items:center;
+
+  &:first-of-type {
+      margin-bottom:5em;
+  }
+`
+
+const HackerrankItem = styled.img`
+  width:96px;
+  margin-right:1em;
+`
+
+
+export const Projects = (props) => {
+  const { t, theme, open, setOpen, title, children } = props
+
+  const [tabIndex, setTabIndex] = useState(0);
+
+  const hackerrank = useSWR('/api/hackerrank', fetcher).data
+  const github = useSWR('/api/github', fetcher).data
+
+  if (hackerrank) {
+    console.log(hackerrank["certs"])
+  }
+  return (
+    <Modal {...props}>
+      <TabContainer>
+        {["React", "React Native", "Hackerrank", "Github"].map((item, index) =>
+          <TabTitle
+            key={index}
+            active={tabIndex === index}
+            onClick={() => setTabIndex(index)}>
+            {item}
+          </TabTitle>
+        )}
+      </TabContainer>
+
+      <SwipeableViews index={tabIndex} onChange={(i) => setTabIndex(i)}>
+        <div>
+          Coming soon...
+        </div>
+        <div>
+          Coming soon...
+        </div>
+        <div>
+          <Title>Certificates</Title>
+          {hackerrank &&
+            <HackerrankContainer>
+              {hackerrank["certs"].map(item =>
+                <HackerrankItem
+                  width={32}
+                  draggable="false"
+                  src={item.photo}
+                />
+              )}
+            </HackerrankContainer>
+          }
+
+          <Title>Badges</Title>
+          {hackerrank &&
+            <HackerrankContainer>
+              {hackerrank["badges"].map(item =>
+                <HackerrankItem
+                  width={32}
+                  draggable="false"
+                  src={item.photo}
+                />
+              )}
+            </HackerrankContainer>
+          }
+        </div>
+        <div>
+          {JSON.stringify(github)}
+        </div>
+      </SwipeableViews>
+    </Modal >
+  )
+}
+
+export default Projects
