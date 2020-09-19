@@ -45,7 +45,6 @@ const HackerrankItem = styled.img`
 `
 
 const SwipeItem = styled.div`
-  max-width:95%;
 `
 
 
@@ -56,10 +55,6 @@ export const Projects = (props) => {
 
   const hackerrank = useSWR('/api/hackerrank', fetcher).data
   const github = useSWR('/api/github', fetcher).data
-
-  useEffect(() => {
-    setTabIndex(tabIndex)
-  }, [tabIndex]);
 
   return (
     <Modal {...props}>
@@ -76,7 +71,10 @@ export const Projects = (props) => {
         )}
       </TabContainer>
 
-      <SwipeableViews index={tabIndex} onChange={(i) => setTabIndex(i)}>
+      <SwipeableViews
+        enableMouseEvents
+        index={tabIndex}
+        onChangeIndex={(i) => setTabIndex(i)}>
         <SwipeItem>
           Coming soon...
         </SwipeItem>
