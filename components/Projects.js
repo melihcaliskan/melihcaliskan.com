@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Modal from './Modal'
 import SwipeableViews from 'react-swipeable-views';
@@ -44,6 +44,10 @@ const HackerrankItem = styled.img`
   margin-right:1em;
 `
 
+const SwipeItem = styled.div`
+  max-width:95%;
+`
+
 
 export const Projects = (props) => {
   const { t, theme, open, setOpen, title, children } = props
@@ -53,9 +57,10 @@ export const Projects = (props) => {
   const hackerrank = useSWR('/api/hackerrank', fetcher).data
   const github = useSWR('/api/github', fetcher).data
 
-  if (hackerrank) {
-    console.log(hackerrank["certs"])
-  }
+  useEffect(() => {
+    setTabIndex(tabIndex)
+  }, [tabIndex]);
+
   return (
     <Modal {...props}>
       <TabContainer>
@@ -72,13 +77,13 @@ export const Projects = (props) => {
       </TabContainer>
 
       <SwipeableViews index={tabIndex} onChange={(i) => setTabIndex(i)}>
-        <div>
+        <SwipeItem>
           Coming soon...
-        </div>
-        <div>
+        </SwipeItem>
+        <SwipeItem>
           Coming soon...
-        </div>
-        <div>
+        </SwipeItem>
+        <SwipeItem>
           <Title>Certificates</Title>
           {hackerrank &&
             <HackerrankContainer>
@@ -104,10 +109,10 @@ export const Projects = (props) => {
               )}
             </HackerrankContainer>
           }
-        </div>
-        <div>
-          {JSON.stringify(github)}
-        </div>
+        </SwipeItem>
+        <SwipeItem>
+          Coming soon...
+        </SwipeItem>
       </SwipeableViews>
     </Modal >
   )
