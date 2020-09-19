@@ -58,11 +58,12 @@ export const Projects = (props) => {
 
   useEffect(() => {
     let container = document.getElementById("tab-container")
-    console.log("Sa", container)
-    container.scroll({
-      behavior: 'smooth',
-      left: tabIndex * 30
-    });
+    if(container){
+      container.scroll({
+        behavior: 'smooth',
+        left: tabIndex * 30
+      });
+    }
   }, [tabIndex]);
 
   return (
