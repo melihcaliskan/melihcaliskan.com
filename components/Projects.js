@@ -46,6 +46,7 @@ const HackerrankItem = styled.img`
 
 const SwipeItem = styled.div`
   max-width:95%;
+  overflow:hidden;
 `
 
 export const Projects = (props) => {
@@ -58,10 +59,10 @@ export const Projects = (props) => {
 
   useEffect(() => {
     let container = document.getElementById("tab-container")
-    if(container){
+    if (container) {
       container.scroll({
         behavior: 'smooth',
-        left: tabIndex * 30
+        left: tabIndex * 40
       });
     }
   }, [tabIndex]);
