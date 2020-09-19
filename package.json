@@ -15,7 +15,9 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-portal-overlay": "^1.0.1",
+    "react-swipeable-views": "^0.14.0-alpha.0",
     "styled-components": "^5.1.1",
+    "swr": "^0.3.2",
     "twemoji": "^13.0.1"
   },
   "devDependencies": {
