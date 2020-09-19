@@ -19,16 +19,16 @@ const MenuToggle = (props) => {
     return (
         <Container open={open}>
             <Menu {...props} open={isChecked} setIsChecked={setIsChecked} />
-            <div class="menu cross">
+            <div className="menu cross">
                 <label>
                     <input
                         value={isChecked}
                         onChange={() => setIsChecked(!isChecked)}
                         type="checkbox" />
                     <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
-                        <path class="line--1" d="M0 70l28-28c2-2 2-2 7-2h64" />
-                        <path class="line--2" d="M0 50h99" />
-                        <path class="line--3" d="M0 30l28 28c2 2 2 2 7 2h64" />
+                        <path className="line--1" d="M0 70l28-28c2-2 2-2 7-2h64" />
+                        <path className="line--2" d="M0 50h99" />
+                        <path className="line--3" d="M0 30l28 28c2 2 2 2 7 2h64" />
                     </svg>
                 </label>
             </div>
