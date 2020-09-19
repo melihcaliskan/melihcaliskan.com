@@ -45,8 +45,8 @@ const HackerrankItem = styled.img`
 `
 
 const SwipeItem = styled.div`
+  max-width:95%;
 `
-
 
 export const Projects = (props) => {
   const { t, theme, open, setOpen, title, children } = props
@@ -56,12 +56,22 @@ export const Projects = (props) => {
   const hackerrank = useSWR('/api/hackerrank', fetcher).data
   const github = useSWR('/api/github', fetcher).data
 
+  useEffect(() => {
+    let container = document.getElementById("tab-container")
+    console.log("Sa", container)
+    container.scroll({
+      behavior: 'smooth',
+      left: tabIndex * 30
+    });
+  }, [tabIndex]);
+
   return (
     <Modal {...props}>
-      <TabContainer>
+      <TabContainer id="tab-container">
         {["React", "React Native", "Hackerrank", "Github"].map((item, index) =>
           <TitleContainer>
             <TabTitle
+              id={index}
               key={index}
               active={tabIndex === index}
               onClick={() => setTabIndex(index)}>
