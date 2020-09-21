@@ -17,7 +17,10 @@
 
     "backToHome": "Back to home",
 
-    "resume":"Resume",
-    "contact":"Contact",
-    "sourcecode":"Source Code"
+    "resume": "Resume",
+    "contact": "Contact",
+    "sourcecode": "Source Code",
+
+    "certificates": "Certificates",
+    "badges": "Badges"
 }
