@@ -53,7 +53,7 @@ const Text = styled.a`
       }
 
       & {
-          font-size:2rem;
+          font-size:1.8rem;
       }
   }
 `
