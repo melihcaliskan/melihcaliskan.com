@@ -76,10 +76,15 @@ const CustomModal = (props) => {
   const { t, theme, open, setOpen, title, children } = props
   return (
     <Overlay
-      css={css`background: ${theme.body}; padding: 3rem; width: 100%;`}
-      open={open}>
+      open={open}
+      css={css`
+        background: ${theme.body};
+        padding: 3rem;
+        width: 100%;
+        overflow:auto !important;
+      `}>
       <Modal>
-        <Title css={css`margin-bottom: 2rem;`}>
+        <Title>
           {title}
         </Title>
 
