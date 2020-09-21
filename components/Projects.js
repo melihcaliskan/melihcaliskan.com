@@ -30,12 +30,12 @@ const Title = styled.h3`
 `
 
 const HackerrankContainer = styled.div`
-  display:grid;
+  display:inline-grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-row-gap: 10px;
 
   &:first-of-type {
-      margin-bottom:5em;
+      margin-bottom:2em;
   }
 `
 
@@ -62,10 +62,11 @@ export const Projects = (props) => {
 
   useEffect(() => {
     let container = document.getElementById("tab-container")
+    let scrollingTabWidth = container.getElementsByTagName('div')[tabIndex].clientWidth;
     if (container) {
       container.scroll({
         behavior: 'smooth',
-        left: tabIndex * 40
+        left: tabIndex * scrollingTabWidth - 50
       });
     }
   }, [tabIndex]);
@@ -76,7 +77,7 @@ export const Projects = (props) => {
         {["React", "React Native", "Hackerrank", "Github"].map((item, index) =>
           <TitleContainer>
             <TabTitle
-              id={index}
+              id={`title-${index}`}
               key={index}
               active={tabIndex === index}
               onClick={() => setTabIndex(index)}>

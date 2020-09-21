@@ -17,6 +17,7 @@ const Content = styled.div`
 const Title = styled.h1`
   font-weight:800;
   @media only screen and (max-width: 740px) {
+    margin:0;
     font-size:2.5rem;
   }
 `
