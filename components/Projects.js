@@ -62,8 +62,8 @@ export const Projects = (props) => {
 
   useEffect(() => {
     let container = document.getElementById("tab-container")
-    let scrollingTabWidth = container.getElementsByTagName('div')[tabIndex].clientWidth;
     if (container) {
+      let scrollingTabWidth = container.getElementsByTagName('div')[tabIndex].clientWidth;
       container.scroll({
         behavior: 'smooth',
         left: tabIndex * scrollingTabWidth - 50
