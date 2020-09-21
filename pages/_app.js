@@ -1,4 +1,5 @@
 import '../assets/normalize.css'
+import 'react-image-lightbox/style.css';
 
 import { darkTheme, lightTheme } from '../assets/theme';
 
