@@ -11,7 +11,6 @@ const TabContainer = styled.div`
   display:flex;
   position:relative;
   overflow:auto;
-  margin-bottom:2em;
 `
 const TitleContainer = styled.div`
   margin-right:1em;
@@ -31,8 +30,9 @@ const Title = styled.h3`
 `
 
 const HackerrankContainer = styled.div`
-  display:flex;
-  align-items:center;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 10px;
 
   &:first-of-type {
       margin-bottom:5em;
@@ -42,6 +42,9 @@ const HackerrankContainer = styled.div`
 const HackerrankItem = styled.img`
   width:96px;
   margin-right:1em;
+  @media only screen and (max-width: 740px) {
+    width:72px;
+  }
 `
 
 const SwipeItem = styled.div`
@@ -52,7 +55,7 @@ const SwipeItem = styled.div`
 export const Projects = (props) => {
   const { t, theme, open, setOpen, title, children } = props
 
-  const [tabIndex, setTabIndex] = useState(0);
+  const [tabIndex, setTabIndex] = useState(2);
 
   const hackerrank = useSWR('/api/hackerrank', fetcher).data
   const github = useSWR('/api/github', fetcher).data
