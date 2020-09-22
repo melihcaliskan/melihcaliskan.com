@@ -26,7 +26,6 @@ const CloseModal = styled.div`
   cursor: pointer;
   display:flex;
   align-items:center;
-
   p{
     color:${({ theme }) => theme.body_700};
     font-size:24px;
@@ -73,13 +72,13 @@ const CloseModal = styled.div`
 `
 
 const CustomModal = (props) => {
-  const { t, theme, open, setOpen, title, children } = props
+  const { t, theme, open, setOpen, title, children, isMobile } = props
   return (
     <Overlay
       open={open}
       css={css`
         background: ${theme.body};
-        padding: 3rem;
+        padding: ${isMobile ? "3rem 1rem" : "3rem"};
         width: 100%;
         overflow:auto !important;
       `}>

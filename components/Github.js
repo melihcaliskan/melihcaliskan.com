@@ -1,12 +1,16 @@
 import styled from 'styled-components'
 
 const Container = styled.div`
-  display:inline-grid;
+  display:grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
-  padding-top:1em;
+  overflow:hidden;
+  /* For animation*/
+  padding-top:20px;
+  
   @media only screen and (max-width: 740px) {
-    grid-template-columns: 1fr;
+    display:grid;
+    grid-template-columns: 100%;
     grid-column-gap: 0px;
   }
 `
@@ -31,7 +35,7 @@ const GithubItem = styled.a`
     object-fit:cover;
   }
   
-  div{
+  .content{
     padding:1em;
     h3{
       margin:0.5em 0;
@@ -46,8 +50,11 @@ const GithubItem = styled.a`
       img{
         width:140px;
       }
-      div{
+      .content{
         padding:0.5em 0.8em 1em 0.8em;
+      }
+      .description{
+        display:none;
       }
   }
 `
@@ -58,10 +65,10 @@ const PrimaryLanguage = styled.div`
   height:20px;
   border-radius:5px;
   margin-top:1em;
+  padding:1em 0.5em;
   background:${({ theme }) => theme.body_200};
 
   div{
-    padding:0;
     width:18px;
     height:18px;
     border-radius:50%;
@@ -70,6 +77,7 @@ const PrimaryLanguage = styled.div`
   }
 
   p{
+    padding:0;
     font-size:13px;
     font-weight:bold; 
   }
@@ -82,7 +90,7 @@ const Github = ({ repos }) => {
       {repos.map(item =>
         <GithubItem target="_blank" href={item.node.url}>
           <img width="180" src={item.node.openGraphImageUrl} />
-          <div>
+          <div className="content">
             <h3>{item.node.name}</h3>
             <p className="description">{item.node.shortDescriptionHTML}</p>
 

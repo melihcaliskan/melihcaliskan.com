@@ -98,7 +98,7 @@ const qraphQlResponse = {
           },
           {
             "node": {
-              "name": "iot_ev_otomasyonu",
+              "name": "iot-ev-otomasyonu",
               "shortDescriptionHTML": "131715504 - Nesnelerin İnterneti (Tek. Seç. Ders I), Arduino ile geliştirilen ödev projesi.",
               "url": "https://github.com/melihcaliskan/iot_ev_otomasyonu",
               "openGraphImageUrl": "https://repository-images.githubusercontent.com/228886081/9b30f080-fcd9-11ea-93bf-32081d54a5ae",

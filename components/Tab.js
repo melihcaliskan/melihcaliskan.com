@@ -26,7 +26,7 @@ export const Startups = ({ items, tabIndex, setTabIndex }) => {
 
     useEffect(() => {
         let container = document.getElementById("tab-container")
-        if (1 == 2 && container) {
+        if (container) {
             let scrollingTabWidth = container.getElementsByTagName('div')[tabIndex].clientWidth;
             container.scroll({
                 behavior: 'smooth',

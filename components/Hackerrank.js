@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+const Container = styled.div`
+  padding: 0 0 0 1em;
+`
+
 const Title = styled.h3`
 `
 
@@ -26,7 +30,7 @@ const HackerrankItem = styled.img`
 
 const Hackerrank = ({ t, data }) => {
     return (
-        <>
+        <Container>
             <Title>{t('certificates')}</Title>
             <HackerrankContainer>
                 {data["certs"].map(item =>
@@ -48,7 +52,7 @@ const Hackerrank = ({ t, data }) => {
                     />
                 )}
             </HackerrankContainer>
-        </>
+        </Container>
     );
 }
 

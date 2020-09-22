@@ -18,7 +18,8 @@ const ProjectContainer = styled.div`
   flex-direction:column;
   background:${({ theme }) => theme.body_100};
   border:2px solid ${({ theme }) => theme.body_200};
-  width:360px;
+  max-width:360px;
+  width:100%;
   border-radius:10px;
   cursor:pointer;
   transition: all .4s;
@@ -78,7 +79,7 @@ export const Projects = (props) => {
           {1 == 2 && projects &&
             <Lightbox images={projects[0].images} />
           }
-          {projects && projects.map(item => {
+          {tabIndex == 1 && projects && projects.map(item => {
             if (item.platform == "rn") {
               return (
                 <ProjectContainer>
@@ -94,12 +95,12 @@ export const Projects = (props) => {
         </SwipeItem>
 
         <SwipeItem>
-          {hackerrank &&
+          {(tabIndex == 2 && hackerrank) &&
             <Hackerrank t={t} data={hackerrank} />
           }
         </SwipeItem>
         <SwipeItem>
-          {github &&
+          {(tabIndex == 3 && github) &&
             <Github repos={github} />
           }
         </SwipeItem>
