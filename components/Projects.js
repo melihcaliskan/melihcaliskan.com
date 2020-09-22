@@ -1,94 +1,70 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
+import Github from '../components/Github'
+import Hackerrank from '../components/Hackerrank'
 import Modal from './Modal'
 import SwipeableViews from 'react-swipeable-views';
+import Tab from '../components/Tab'
 import fetcher from '../helpers/fetcher'
 import styled from 'styled-components'
 import useSWR from 'swr'
 
-const TabContainer = styled.div`
-  scroll-snap-type: x mandatory;
-  display:flex;
-  position:relative;
-  overflow:auto;
-`
-const TitleContainer = styled.div`
-  margin-right:1em;
-  cursor:pointer;
-  scroll-snap-align: start;
-`
-
-const TabTitle = styled.h2`
-  font-size:28px;
-  white-space: nowrap;
-  transition: color .4s;
-  color:${props => props.active ? props.theme.body_900 : props.theme.body_600};
-`
-
-
-const Title = styled.h3`
-`
-
-const HackerrankContainer = styled.div`
-  display:inline-grid;
-  grid-template-columns: repeat(5,1fr);
-  grid-row-gap: 10px;
-
-  &:first-of-type {
-      margin-bottom:2em;
-  }
-  @media only screen and (max-width: 740px) {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-`
-
-const HackerrankItem = styled.img`
-  width:96px;
-  margin-right:1em;
-  @media only screen and (max-width: 740px) {
-    width:72px;
-  }
-`
-
 const SwipeItem = styled.div`
   max-width:95%;
-  overflow:hidden;
+`
+
+const ProjectContainer = styled.div`
+  display:inline-flex;
+  flex-direction:column;
+  background:${({ theme }) => theme.body_100};
+  border:2px solid ${({ theme }) => theme.body_200};
+  width:360px;
+  border-radius:10px;
+  cursor:pointer;
+  transition: all .4s;
+
+  &:hover{
+    background:${({ theme }) => theme.body_200};
+  }
+  
+  div{
+    padding:1em;
+  }
+  
+  h2{
+    font-size:28px;
+    color:${({ theme }) => theme.body_900};
+  }
+`
+
+const LogoContainer = styled.div`
+  width:100%;
+  height:240px;
+  background-image:url(${props => props.img});
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
 `
 
 export const Projects = (props) => {
   const { t, theme, open, setOpen, title, children } = props
 
-  const [tabIndex, setTabIndex] = useState(2);
+  const [tabIndex, setTabIndex] = useState(3);
 
+  const projects = useSWR('/api/projects', fetcher).data
   const hackerrank = useSWR('/api/hackerrank', fetcher).data
   const github = useSWR('/api/github', fetcher).data
 
-  useEffect(() => {
-    let container = document.getElementById("tab-container")
-    if (container) {
-      let scrollingTabWidth = container.getElementsByTagName('div')[tabIndex].clientWidth;
-      container.scroll({
-        behavior: 'smooth',
-        left: tabIndex * scrollingTabWidth - 50
-      });
-    }
-  }, [tabIndex]);
-
   return (
     <Modal {...props}>
-      <TabContainer id="tab-container">
-        {["React", "React Native", "Hackerrank", "Github"].map((item, index) =>
-          <TitleContainer>
-            <TabTitle
-              id={`title-${index}`}
-              key={index}
-              active={tabIndex === index}
-              onClick={() => setTabIndex(index)}>
-              {item}
-            </TabTitle>
-          </TitleContainer>
-        )}
-      </TabContainer>
+      <Tab
+        items={["React", "React Native", "Hackerrank", "Github"]}
+        tabIndex={tabIndex}
+        setTabIndex={setTabIndex}
+      />
 
       <SwipeableViews
         enableMouseEvents
@@ -97,38 +73,35 @@ export const Projects = (props) => {
         <SwipeItem>
           Coming soon...
         </SwipeItem>
-        <SwipeItem>
-          Coming soon...
-        </SwipeItem>
-        <SwipeItem>
-          <Title>Certificates</Title>
-          {hackerrank &&
-            <HackerrankContainer>
-              {hackerrank["certs"].map(item =>
-                <HackerrankItem
-                  width={32}
-                  draggable="false"
-                  src={item.photo}
-                />
-              )}
-            </HackerrankContainer>
-          }
 
-          <Title>Badges</Title>
+        <SwipeItem>
+          {1 == 2 && projects &&
+            <Lightbox images={projects[0].images} />
+          }
+          {projects && projects.map(item => {
+            if (item.platform == "rn") {
+              return (
+                <ProjectContainer>
+                  <LogoContainer img={item.logo} />
+                  <div>
+                    <h2>{item.name}</h2>
+                  </div>
+                </ProjectContainer>
+              )
+            }
+          })
+          }
+        </SwipeItem>
+
+        <SwipeItem>
           {hackerrank &&
-            <HackerrankContainer>
-              {hackerrank["badges"].map(item =>
-                <HackerrankItem
-                  width={32}
-                  draggable="false"
-                  src={item.photo}
-                />
-              )}
-            </HackerrankContainer>
+            <Hackerrank t={t} data={hackerrank} />
           }
         </SwipeItem>
         <SwipeItem>
-          Coming soon...
+          {github &&
+            <Github repos={github} />
+          }
         </SwipeItem>
       </SwipeableViews>
     </Modal >

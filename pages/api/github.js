@@ -40,7 +40,7 @@ const qraphQlResponse = {
               "primaryLanguage": {
                 "name": "JavaScript",
                 "id": "MDg6TGFuZ3VhZ2UxNDA=",
-                "color": "#f1e05a"
+                "color": "#ffed5f"
               }
             }
           },
@@ -53,7 +53,7 @@ const qraphQlResponse = {
               "primaryLanguage": {
                 "name": "JavaScript",
                 "id": "MDg6TGFuZ3VhZ2UxNDA=",
-                "color": "#f1e05a"
+                "color": "#ffed5f"
               }
             }
           },
@@ -66,29 +66,29 @@ const qraphQlResponse = {
               "primaryLanguage": {
                 "name": "JavaScript",
                 "id": "MDg6TGFuZ3VhZ2UxNDA=",
-                "color": "#f1e05a"
+                "color": "#ffed5f"
               }
             }
           },
           {
             "node": {
               "name": "hackerrank",
-              "shortDescriptionHTML": "",
+              "shortDescriptionHTML": "Solutions to HackerRank problems",
               "url": "https://github.com/melihcaliskan/hackerrank",
               "openGraphImageUrl": "https://repository-images.githubusercontent.com/296387736/f500ce80-fc77-11ea-8c58-4afc44bb6f11",
               "primaryLanguage": {
                 "name": "JavaScript",
                 "id": "MDg6TGFuZ3VhZ2UxNDA=",
-                "color": "#f1e05a"
+                "color": "#ffed5f"
               }
             }
           },
           {
             "node": {
               "name": "yemek-onerici",
-              "shortDescriptionHTML": "",
+              "shortDescriptionHTML": "131715123 - Veritabanı Yönetimi Sistemleri dersi için, C# ve MSSQL ile geliştirilen ödev projesi.",
               "url": "https://github.com/melihcaliskan/yemek-onerici",
-              "openGraphImageUrl": "https://avatars2.githubusercontent.com/u/12929044?s=400&v=4",
+              "openGraphImageUrl": "https://repository-images.githubusercontent.com/212600681/f366f300-fcd7-11ea-9127-551dff946711",
               "primaryLanguage": {
                 "name": "C#",
                 "id": "MDg6TGFuZ3VhZ2UyMzI=",
@@ -99,9 +99,9 @@ const qraphQlResponse = {
           {
             "node": {
               "name": "iot_ev_otomasyonu",
-              "shortDescriptionHTML": "",
+              "shortDescriptionHTML": "131715504 - Nesnelerin İnterneti (Tek. Seç. Ders I), Arduino ile geliştirilen ödev projesi.",
               "url": "https://github.com/melihcaliskan/iot_ev_otomasyonu",
-              "openGraphImageUrl": "https://avatars2.githubusercontent.com/u/12929044?s=400&v=4",
+              "openGraphImageUrl": "https://repository-images.githubusercontent.com/228886081/9b30f080-fcd9-11ea-93bf-32081d54a5ae",
               "primaryLanguage": {
                 "name": "C++",
                 "id": "MDg6TGFuZ3VhZ2UxNDI=",

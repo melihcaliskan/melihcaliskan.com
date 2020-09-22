@@ -1,13 +1,11 @@
 import { i18n, withTranslation } from '../i18n'
 
 import Container from '../components/Container'
-import Head from 'next/head'
 import Header from '../components/Header'
 import Modal from '../components/Modal'
 import Projects from '../components/Projects'
+import Startups from '../components/Startups'
 import Text from '../components/Text'
-import Twemoji from '../components/Twemoji';
-import handleLanguage from '../helpers/handleLanguage'
 import styled from 'styled-components'
 import { useState } from 'react';
 
@@ -86,20 +84,11 @@ const Deutsch = ({ t, theme, setOpenStartups, setOpenProjects }) => {
   )
 }
 
-const Startups = (props) => {
-  const { t, theme, open, setOpen, title, children } = props
-  return (
-    <Modal {...props}>
-      Coming soon...
-    </Modal>
-  )
-}
-
 const Home = (props) => {
   const { loading, t, isLight, theme, toggleTheme } = props
   const language = i18n.language
   const [openStartups, setOpenStartups] = useState(false);
-  const [openProjects, setOpenProjects] = useState(false);
+  const [openProjects, setOpenProjects] = useState(true);
 
   if (loading) {
     return (

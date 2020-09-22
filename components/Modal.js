@@ -4,7 +4,7 @@ import { withTranslation } from '../i18n'
 
 const Modal = styled.div`
   max-width:960px;
-  margin:8vh auto;
+  margin:2vh auto;
   @media only screen and (max-width: 740px) {
     margin:0 auto;
   }
