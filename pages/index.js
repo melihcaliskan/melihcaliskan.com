@@ -88,7 +88,7 @@ const Home = (props) => {
   const { loading, t, isLight, theme, toggleTheme } = props
   const language = i18n.language
   const [openStartups, setOpenStartups] = useState(false);
-  const [openProjects, setOpenProjects] = useState(true);
+  const [openProjects, setOpenProjects] = useState(false);
 
   if (loading) {
     return (
