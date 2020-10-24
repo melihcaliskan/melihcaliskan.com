@@ -35,7 +35,7 @@ const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
 
   return (
     <Text>{t('iam')}
-      <Text pointer target="_blank" href="/MelihCaliskan_Ozgecmis.pdf" color={theme.body_700}>{' ' + t('name')}.</Text>
+      <Text pointer target="_blank" href="/MelihCaliskan_Ozgecmis.pdf" highlight>{' ' + t('name')}.</Text>
       <Text
         // Used onClick because of Apple restrictions
         onClick={() => handleAudio(true)}
@@ -50,32 +50,31 @@ const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
           <img width="280" src="/dpu.jpg" />
         </div>
       </Text>
-      <Text color={theme.body_700}>{' ' + t('faculty')}</Text>
-      <Text>{' ' + t('student')}.</Text>
-      <Text>{' ' + t('myown') + ' '}</Text>
-      <Text href="#" onClick={() => setOpenStartups(true)} pointer underline color={theme.body_700}>{t('startup')}</Text>
-      <Text>{' ' + t('workon') + ' '}</Text>
-      <Text href="#" onClick={() => setOpenProjects(true)} pointer underline color={theme.body_700}>{t('freelance') + ' ' + t('projects')}</Text>
-      <Text>{' ' + t('working')}</Text>
-    </Text >
+      <Text highlight>{' ' + t('faculty')}</Text>
+      <Text>{' ' + t('student')}. </Text>
+      <Text href="https://tapu.com" highlight pointer underline>tapu.com</Text>
+      <Text>'da Frontend Geliştirici olarak çalışıyor </Text>
+      <Text href="#" onClick={() => setOpenProjects(true)} pointer underline highlight>açık kaynak</Text>
+      <Text> projeler geliştiriyorum.</Text>
+    </Text>
   )
 }
 
 const English = ({ t, theme, setOpenStartups, setOpenProjects }) => {
   return (
-    <Text>{t('iam')} <Text pointer target="_blank" href="MelihCaliskan_Resume.pdf" color={theme.body_700}>{t('name')}.
+    <Text>{t('iam')} <Text pointer target="_blank" href="MelihCaliskan_Resume.pdf" highlight>{t('name')}.
       <br />
-      {t('student')} </Text> {t('university')}, <Text color={theme.body_700}>{t('faculty')}</Text>.
-      {' ' + t('myown')} <Text href="#" onClick={() => setOpenStartups(true)} pointer underline color={theme.body_700}>{t('startup')}</Text> {t('workon')} <Text href="#" onClick={() => setOpenProjects(true)} pointer underline color={theme.body_700}>{t('freelance') + ' ' + t('projects')}</Text>
+      {t('student')} </Text> {t('university')}, <Text highlight>{t('faculty')}</Text>.
+      Frontend Developer at <Text href="https://tapu.com" highlight pointer underline>tapu.com</Text><Text> and develop</Text><Text href="#" onClick={() => setOpenProjects(true)} pointer underline highlight> open source</Text><Text> projects.</Text>
     </Text>
   )
 }
 const Deutsch = ({ t, theme, setOpenStartups, setOpenProjects }) => {
   return (
-    <Text>{t('iam')} <Text pointer target="_blank" href="MelihCaliskan_Resume.pdf" color={theme.body_700}>{t('name')}.</Text>
+    <Text>{t('iam')} <Text pointer target="_blank" href="MelihCaliskan_Resume.pdf" highlight>{t('name')}.</Text>
       <br />
-      <Text>{t('student')}</Text> {t('university')}, <Text color={theme.body_700}>{t('faculty')}</Text>.
-      {' ' + t('myown')} <Text href="#" onClick={() => setOpenStartups(true)} pointer underline color={theme.body_700}>{t('startup')}</Text> {t('workon')} <Text href="#" onClick={() => setOpenProjects(true)} pointer underline color={theme.body_700}>{t('freelance')}</Text>  {t('projects')}
+      <Text>{t('student')}</Text> {t('university')}, <Text highlight>{t('faculty')}</Text>.
+      {' ' + t('myown')} <Text href="#" onClick={() => setOpenStartups(true)} pointer underline highlight>{t('startup')}</Text> {t('workon')} <Text href="#" onClick={() => setOpenProjects(true)} pointer underline highlight>{t('freelance')}</Text>  {t('projects')}
     </Text>
   )
 }
