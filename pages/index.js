@@ -8,15 +8,11 @@ import Startups from '../components/Startups'
 import Text from '../components/Text'
 import styled from 'styled-components'
 import { useState } from 'react';
+import { handleLanguage } from '../helpers/handleLanguage'
 
-const LanguageToggle = styled.button`
+const LanguageToggle = styled.a`
   cursor: pointer;
-  border:0;
-  margin-left:-5px;
-  margin-right:-5px;
-  background:transparent;
   font-weight:700;
-  transition: color .3s;
   color:${({ theme }) => theme.body_600};
   &:hover, &:focus{
     color:${({ theme }) => theme.body_700};
@@ -107,7 +103,6 @@ const Home = (props) => {
       <Text id="text-container">
         <LanguageToggle
           title={"Change language"}
-          type='button'
           onClick={() => handleLanguage()}>
           {t('hello')}
         </LanguageToggle>
