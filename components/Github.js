@@ -47,6 +47,7 @@ const GithubItem = styled.a`
   }
 
   @media only screen and (max-width: 740px) {
+      max-height:120px;
       img{
         width:140px;
       }
