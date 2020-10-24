@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const Text = styled.a`
   position: relative;
   display: inline;
-  font-size:64px;
+  font-size:58px;
   font-weight:700;    
   color:${props => props.highlight ? props.theme.body_700 : props.color ? props.color : props.theme.body_600};
   cursor:${props => props.pointer ? "pointer" : "initial"};
