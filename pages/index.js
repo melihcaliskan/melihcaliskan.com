@@ -65,7 +65,7 @@ const English = ({ t, theme, setOpenStartups, setOpenProjects }) => {
     <Text>{t('iam')} <Text pointer target="_blank" href="MelihCaliskan_Resume.pdf" highlight>{t('name')}.
       <br />
       {t('student')} </Text> {t('university')}, <Text highlight>{t('faculty')}</Text>.
-      Frontend Developer at <Text href="https://tapu.com" highlight pointer underline>tapu.com</Text><Text> and develop</Text><Text href="#" onClick={() => setOpenProjects(true)} pointer underline highlight> open source</Text><Text> projects.</Text>
+      Frontend Developer at <Text href="https://tapu.com" highlight pointer underline>tapu.com</Text><Text> and develop </Text><Text href="#" onClick={() => setOpenProjects(true)} pointer underline highlight>open source</Text><Text> projects.</Text>
     </Text>
   )
 }
