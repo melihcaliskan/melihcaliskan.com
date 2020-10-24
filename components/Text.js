@@ -5,7 +5,7 @@ const Text = styled.a`
   display: inline;
   font-size:64px;
   font-weight:700;    
-  color:${props => props.color ? props.color : props.theme.body_600};
+  color:${props => props.highlight ? props.theme.body_700 : props.color ? props.color : props.theme.body_600};
   cursor:${props => props.pointer ? "pointer" : "initial"};
 
   text-decoration:${props => props.underline ? "underline" : "none"};
