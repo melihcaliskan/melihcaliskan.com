@@ -53,7 +53,7 @@ const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
       <Text highlight>{' ' + t('faculty')}</Text>
       <Text>{' ' + t('student')}. </Text>
       <Text href="https://tapu.com" highlight pointer underline>tapu.com</Text>
-      <Text>'da Frontend Geliştirici olarak çalışıyor </Text>
+      <Text>'da Frontend Geliştirici olarak çalışıyor ve </Text>
       <Text href="#" onClick={() => setOpenProjects(true)} pointer underline highlight>açık kaynak</Text>
       <Text> projeler geliştiriyorum.</Text>
     </Text>
