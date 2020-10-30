@@ -53,7 +53,7 @@ const LogoContainer = styled.div`
 export const Projects = (props) => {
   const { t, theme, open, setOpen, title, children } = props
 
-  const [tabIndex, setTabIndex] = useState(3);
+  const [tabIndex, setTabIndex] = useState(0);
 
   const projects = useSWR('/api/projects', fetcher).data
   const hackerrank = useSWR('/api/hackerrank', fetcher).data
@@ -62,7 +62,7 @@ export const Projects = (props) => {
   return (
     <Modal {...props}>
       <Tab
-        items={["React", "React Native", "Hackerrank", "Github"]}
+        items={["Github", "Hackerrank", "React Native"]}
         tabIndex={tabIndex}
         setTabIndex={setTabIndex}
       />
@@ -72,14 +72,17 @@ export const Projects = (props) => {
         index={tabIndex}
         onChangeIndex={(i) => setTabIndex(i)}>
         <SwipeItem>
-          Coming soon...
-        </SwipeItem>
-
-        <SwipeItem>
-          {1 == 2 && projects &&
-            <Lightbox images={projects[0].images} />
+          {(tabIndex == 0 && github) &&
+            <Github repos={github} />
           }
-          {tabIndex == 1 && projects && projects.map(item => {
+        </SwipeItem>
+        <SwipeItem>
+          {(tabIndex == 1 && hackerrank) &&
+            <Hackerrank t={t} data={hackerrank} />
+          }
+        </SwipeItem>
+        <SwipeItem>
+          {tabIndex == 2 && projects && projects.map(item => {
             if (item.platform == "rn") {
               return (
                 <ProjectContainer>
@@ -91,17 +94,6 @@ export const Projects = (props) => {
               )
             }
           })
-          }
-        </SwipeItem>
-
-        <SwipeItem>
-          {(tabIndex == 2 && hackerrank) &&
-            <Hackerrank t={t} data={hackerrank} />
-          }
-        </SwipeItem>
-        <SwipeItem>
-          {(tabIndex == 3 && github) &&
-            <Github repos={github} />
           }
         </SwipeItem>
       </SwipeableViews>
