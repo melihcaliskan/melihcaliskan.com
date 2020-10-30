@@ -14,6 +14,7 @@ const LanguageToggle = styled.a`
   cursor: pointer;
   font-weight:700;
   color:${({ theme }) => theme.body_600};
+  transition: color .4s;
   &:hover, &:focus{
     color:${({ theme }) => theme.body_700};
   }
@@ -54,7 +55,7 @@ const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
       <Text>{' ' + t('student')}. </Text>
       <Text href="https://tapu.com" highlight pointer underline>tapu.com</Text>
       <Text>'da Frontend Geliştirici olarak çalışıyor ve </Text>
-      <Text href="#" onClick={() => setOpenProjects(true)} pointer underline highlight>açık kaynak</Text>
+      <Text href="#" onClick={() => setOpenProjects(true)} pointer underline highlight>açık kaynaklı</Text>
       <Text> projeler geliştiriyorum.</Text>
     </Text>
   )
