@@ -8,6 +8,10 @@ const Text = styled.a`
   color:${props => props.highlight ? props.theme.body_700 : props.color ? props.color : props.theme.body_600};
   cursor:${props => props.pointer ? "pointer" : "initial"};
 
+  &:hover{
+    color:${props => props.href && props.theme.body_900}
+  }
+
   text-decoration:${props => props.underline ? "underline" : "none"};
   text-decoration-style: ${props => props.underline && "dotted"};
 
