@@ -21,6 +21,7 @@ const GithubItem = styled.a`
   border-radius:10px;
   border:2px solid ${({ theme }) => theme.body_200};
 
+  max-height:220px;
   transition: all .4s;
   &:hover{
     background:${({ theme }) => theme.body_100};
