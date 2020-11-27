@@ -48,7 +48,7 @@ const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
           <audio id="dpu-sound">
             <source src="/dpu.mp3" type="audio/mpeg" />
           </audio>
-          <img width="280" src="/dpu.jpg" />
+          <img width="240" height="135" src="/dpu.webp" />
         </div>
       </Text>
       <Text highlight>{' ' + t('faculty')}</Text>
