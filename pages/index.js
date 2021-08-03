@@ -36,25 +36,9 @@ const Turkish = ({ t, theme, setOpenStartups, setOpenProjects }) => {
 
   return (
     <Text>{t('iam')}
-      <Text pointer target="_blank" href="/MelihCaliskan_Ozgecmis.pdf" highlight>{' ' + t('name')}.</Text>
-      <Text
-        // Used onClick because of Apple restrictions
-        onClick={() => handleAudio(true)}
-        onMouseLeave={() => handleAudio(false)}
-        pointer
-        className="dpu">
-        {' ' + t('university')}
-        <div className="dpu-card">
-          <audio id="dpu-sound">
-            <source src="/dpu.mp3" type="audio/mpeg" />
-          </audio>
-          <img width="240" height="135" src="/dpu.webp" />
-        </div>
-      </Text>
-      <Text highlight>{' ' + t('faculty')}</Text>
-      <Text>{' ' + t('student')}. </Text>
+      <Text pointer target="_blank" href="/MelihCaliskan_Ozgecmis.pdf" highlight>{' ' + t('name')}.{"\n"}</Text>
       <Text href="https://tapu.com" highlight pointer underline>tapu.com</Text>
-      <Text>'da Frontend Geliştirici olarak çalışıyor ve </Text>
+      <Text>'da Yazılım Geliştirici olarak çalışıyor ve </Text>
       <Text href="#" onClick={() => setOpenProjects(true)} pointer underline highlight>açık kaynaklı</Text>
       <Text> projeler geliştiriyorum.</Text>
     </Text>
