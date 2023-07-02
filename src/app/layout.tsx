@@ -14,11 +14,11 @@ export default function RootLayout({ children }: { children: ReactElement }) {
 
   return (
     <html lang="en">
-      <body className="flex flex-col container mx-auto max-w-6xl pt-8 md:pt-24 px-8 lg:px-24 md:h-screen lg:h-screen h-[90vh] overflow-hidden">
+      <body className="flex flex-col container mx-auto max-w-6xl pt-8 md:pt-24 px-8 lg:px-24 h-[85vh] lg:h-screen">
         <header className="flex justify-end">
           <MenuToggle onClick={onToggle} />
         </header>
-        <main className="flex flex-col">{children}</main>
+        <main className="flex flex-1 flex-col">{children}</main>
         <Footer />
         <Dialog open={menuOpen} onToggle={onToggle} />
       </body>
