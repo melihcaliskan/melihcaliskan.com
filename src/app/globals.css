@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 247, 247, 247;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 32, 32, 32;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+h1 {
+  animation: fade-in ease 1s;
+  line-height: 4em;
+}
+
+dialog {
+  animation: fade-in ease 0.5s;
+}
+
+footer {
+  animation: fade-in ease 2s;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+.menu {
+  position: relative;
+}
+
+.menu input {
+  display: none;
+}
+
+.menu label {
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.menu label svg {
+  position: absolute;
+  top: -28px;
+  left: -72px;
+  width: 72px;
+  height: 72px;
+}
+
+@media screen and (max-width: 768px) {
+  .menu label svg {
+    left: 0
+  }
+}
+
+.menu path {
+  fill: none;
+  stroke: #f8fafc;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  --length: 24;
+  --offset: -38;
+  stroke-dasharray: var(--length) var(--total-length);
+  stroke-dashoffset: var(--offset);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.cross input:checked + svg .line--1,
+.cross input:checked + svg .line--3 {
+  --length: 22.627416998;
+}
+
+.cross input:checked + svg .line--2 {
+  --length: 0;
+}
+
+.back input:checked + svg .line--1,
+.back input:checked + svg .line--3 {
+  --length: 8.602325267;
+}
+
+.menu .line--1,
+.menu .line--3 {
+  --total-length: 111.22813415527344;
+  --offset: -50.22813415527344;
+}
+
+.menu .line--2 {
+  --total-length: 99;
+}
+
+.menu input:checked + svg path {
+  transform: translateX(30px);
+}
+
+.menu input:checked + svg .line--1,
+.menu input:checked + svg .line--3 {
+  --offset: -16.9705627485;
+}
+
+.menu input:checked + svg .line--2 {
+  --offset: -20;
+}
