@@ -14,6 +14,10 @@
   }
 }
 
+html {  
+  overflow: hidden;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
@@ -43,6 +47,7 @@ footer {
 
 .menu {
   position: relative;
+  height: 40px;
 }
 
 .menu input {
@@ -66,7 +71,7 @@ footer {
 
 @media screen and (max-width: 768px) {
   .menu label svg {
-    left: 0
+    left: -52px
   }
 }
 
