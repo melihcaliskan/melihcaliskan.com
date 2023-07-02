@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: ReactElement }) {
 
   return (
     <html lang="en">
-      <body className="flex flex-col container mx-auto max-w-6xl h-screen pt-24 px-8 lg:px-24 overflow-hidden">
+      <body className="flex flex-col container mx-auto max-w-6xl h-screen pt-8 md:pt-24 px-8 lg:px-24 overflow-hidden">
         <header className="flex justify-end">
           <MenuToggle onClick={onToggle} />
         </header>
