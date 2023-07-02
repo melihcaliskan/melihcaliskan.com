@@ -14,10 +14,6 @@
   }
 }
 
-html {  
-  overflow: hidden;
-}
-
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
@@ -77,7 +73,7 @@ footer {
 
 .menu path {
   fill: none;
-  stroke: #f8fafc;
+  stroke: rgb(var(--foreground-rgb));
   stroke-width: 3;
   stroke-linecap: round;
   stroke-linejoin: round;
