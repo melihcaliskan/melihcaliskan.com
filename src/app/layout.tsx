@@ -1,6 +1,7 @@
 "use client";
 import "./globals.css";
 import { ReactElement, useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import Dialog from "@/components/Dialog";
 import Footer from "@/components/Footer";
 import MenuToggle from "@/components/MenuToggle";
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: ReactElement }) {
         <main className="flex flex-1 flex-col">{children}</main>
         <Footer />
         <Dialog open={menuOpen} onToggle={onToggle} />
+        <Analytics />
       </body>
     </html>
   );
