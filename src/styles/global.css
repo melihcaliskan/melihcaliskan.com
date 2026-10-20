@@ -11,6 +11,7 @@
     color-scheme: light dark;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
+    scrollbar-gutter: stable both-edges;
   }
 
   body {
@@ -28,7 +29,7 @@
 
 @layer components {
   .hero {
-    @apply mt-14 mb-4 max-w-[26ch] text-[2rem] leading-[1.4] font-extrabold tracking-[-0.01em] text-balance text-gray-500;
+    @apply mt-14 mb-4 max-w-[26ch] text-[2rem] leading-[1.4] font-extrabold tracking-[-0.01em] text-gray-500;
     @apply sm:text-[2.25rem];
     @apply md:mt-16 md:text-[3rem];
     @apply lg:text-[3.75rem] lg:leading-[1.2];
@@ -129,18 +130,48 @@
 }
 .menu-link:hover .arrow { translate: 0.12em -0.12em; }
 
+/* Dotted underline drawn as its own layer (not text-decoration), so it stays
+   intact when the HDR hover makes the text fill transparent in Safari. */
+@property --dot {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+.dotted {
+  position: relative;
+  --dot: var(--color-gray-400);
+  @variant dark { --dot: var(--color-gray-500); }
+}
+.dotted:hover {
+  --dot: var(--color-black);
+  @variant dark { --dot: var(--color-white); }
+}
+.dotted::after {
+  content: '';
+  position: absolute;
+  left: 0.08em;
+  right: 0;
+  bottom: -0.07em;
+  height: 6px;
+  background: radial-gradient(circle at 3px 3px, var(--dot) 2.75px, transparent 3.25px) 0 0 / 14px 7px repeat-x;
+  pointer-events: none;
+  transition: --dot 0.4s ease;
+}
+
 @media (dynamic-range: high) {
-  .highlight:hover,
-  .menu-link:hover {
+  .highlight {
     @variant dark {
       background: url('/hdr-white.png') 0 0 / 100% 100%;
       -webkit-background-clip: text;
       background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-text-fill-color: currentColor;
       dynamic-range-limit: no-limit;
+      transition: -webkit-text-fill-color 0.4s ease, color 0.2s linear;
     }
   }
-  .menu-link .arrow { -webkit-text-fill-color: currentColor; }
+  .highlight:hover {
+    @variant dark { -webkit-text-fill-color: transparent; }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
