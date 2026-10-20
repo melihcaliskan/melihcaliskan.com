@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site } from '../site';
+---
+
+<Layout>
+  <h1 class="hero fade-in">
+    <!-- Below lg: "Hi 👋🏻," / "I’m Melih Çalışkan, a Software Developer…". lg+: break after "a". -->
+    Hi <span class="wave" role="img" aria-label="waving hand">👋🏻</span>,{' '}<br class="lg:hidden" />I’m{' '}
+    <span class="highlight">{site.name}</span>, a{' '}<br class="hidden lg:inline" />
+    <span class="highlight">{site.jobTitle}</span> working at{' '}
+    <a
+      href={site.company.url}
+      target="_blank"
+      rel="noopener"
+      class="highlight underline decoration-gray-400 decoration-dotted decoration-[5px] underline-offset-[0.2em] hover:decoration-current dark:decoration-gray-500"
+      >{site.company.name}</a
+    >
+  </h1>
+</Layout>

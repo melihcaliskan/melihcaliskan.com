@@ -1,0 +1,105 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = site.title, description = site.description } = Astro.props;
+const canonical = new URL(Astro.url.pathname.replace(/\/index$/, '/'), site.url).href;
+const ogImage = new URL('/og.png', site.url).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${site.url}/#website`,
+      url: site.url,
+      name: site.name,
+      inLanguage: 'en',
+      publisher: { '@id': `${site.url}/#person` },
+    },
+    {
+      '@type': 'ProfilePage',
+      '@id': `${site.url}/#profile`,
+      url: site.url,
+      name: site.title,
+      isPartOf: { '@id': `${site.url}/#website` },
+      mainEntity: { '@id': `${site.url}/#person` },
+    },
+    {
+      '@type': 'Person',
+      '@id': `${site.url}/#person`,
+      name: site.name,
+      alternateName: 'Melih Caliskan',
+      url: site.url,
+      image: ogImage,
+      jobTitle: site.jobTitle,
+      email: `mailto:${site.email}`,
+      worksFor: { '@type': 'Organization', name: site.company.name, url: site.company.url },
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={site.name} />
+    <link rel="canonical" href={canonical} />
+
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#202020" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preload" href="/hdr-white.png" as="image" media="(dynamic-range: high)" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content={site.locale} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${site.name}, ${site.jobTitle}`} />
+    <meta property="profile:first_name" content="Melih" />
+    <meta property="profile:last_name" content="Çalışkan" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content={site.handle} />
+    <meta name="twitter:creator" content={site.handle} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="min-h-dvh">
+    <a
+      href="#content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded focus:bg-gray-900 focus:px-4 focus:py-2 focus:text-white dark:focus:bg-white dark:focus:text-gray-900"
+    >
+      Skip to content
+    </a>
+    <div class="mx-auto flex h-[85vh] max-w-6xl flex-col px-10 pt-8 md:px-8 md:pt-24 lg:h-screen lg:px-24">
+      <Header />
+      <main id="content" class="flex flex-1 flex-col">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

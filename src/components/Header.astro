@@ -1,0 +1,73 @@
+---
+import MenuIcon from './MenuIcon.astro';
+import { site } from '../site';
+
+const links = [
+  { label: 'Resume', href: site.resume, external: true },
+  { label: 'Contact', href: `mailto:${site.email}`, external: false },
+];
+---
+
+<header class="relative z-50 flex justify-end">
+  <button
+    id="menu-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="menu"
+    aria-label="Open menu"
+    class="grid size-12 cursor-pointer place-items-center rounded-full text-gray-900 transition-colors hover:bg-black/5 dark:text-gray-100 dark:hover:bg-white/10"
+  >
+    <MenuIcon />
+  </button>
+</header>
+
+<div
+  id="menu"
+  class="fixed inset-0 z-40 bg-paper text-gray-900 dark:bg-ink-deep dark:text-gray-100"
+>
+  <nav aria-label="Primary" class="flex h-full items-center justify-center pb-24">
+    <ul class="menu-list flex flex-col items-center gap-2 md:gap-4">
+      {
+        links.map((link, i) => (
+          <li class="menu-item" style={`--i: ${i}`}>
+            <a
+              href={link.href}
+              class="menu-link group flex items-start text-[2.25rem] leading-tight font-extrabold tracking-[-0.01em] text-gray-700 hover:text-black md:gap-4 md:text-5xl md:leading-[1.2] lg:text-6xl dark:text-gray-200 dark:hover:text-white"
+              {...(link.external && { target: '_blank', rel: 'noopener' })}
+            >
+              <span class="relative">
+                {link.label}
+                {link.external && (
+                  <span class="arrow absolute top-[0.2em] left-full ml-[0.2em] text-[0.5em] leading-none text-gray-400 dark:text-gray-500" aria-hidden="true">↗</span>
+                )}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</div>
+
+<script is:inline>
+  (() => {
+    const btn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    const isOpen = () => btn.getAttribute('aria-expanded') === 'true';
+    const set = (open) => {
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      menu.toggleAttribute('data-open', open);
+      document.documentElement.classList.toggle('menu-open', open);
+      // Keep keyboard focus inside the header + menu while open.
+      for (const el of document.querySelectorAll('main, footer')) el.inert = open;
+    };
+    btn.addEventListener('click', () => set(!isOpen()));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) {
+        set(false);
+        btn.focus();
+      }
+    });
+  })();
+</script>

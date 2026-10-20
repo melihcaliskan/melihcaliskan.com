@@ -1,0 +1,12 @@
+---
+import { site } from '../site';
+const year = new Date().getFullYear();
+---
+
+<footer style="--delay: 300ms" class="fade-in border-t border-gray-200 py-6 dark:border-white/10">
+  <p
+    class="text-center text-sm text-gray-600 transition-colors ease-linear hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+  >
+    {year} · {site.handle}
+  </p>
+</footer>
