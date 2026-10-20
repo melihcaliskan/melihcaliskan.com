@@ -151,7 +151,8 @@
   position: absolute;
   left: 0.08em;
   right: 0;
-  bottom: -0.07em;
+  bottom: calc(-0.07em - 4px);
+  @variant md { bottom: -0.07em; }
   height: 6px;
   background: radial-gradient(circle at 3px 3px, var(--dot) 2.75px, transparent 3.25px) 0 0 / 14px 7px repeat-x;
   pointer-events: none;
